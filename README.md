@@ -72,3 +72,9 @@ runs on page load, so pages never flash or jump.
 - **Undo:** delete the block (it starts with the `bth-land-hdr` comment).
 - An earlier, larger motion block was removed: hiding the store's loading
   cover made pages flash while the banners were still being built.
+
+## `/_cpb/base.html` (`cafe24/base/base.html`)
+
+The live file with three changes: Swiper pinned to `11.2.10`, Pretendard pinned
+to `v1.3.9` (both the stylesheet and the font-fix script), and the sideways-phone
+header block added at the end. Replace the whole file in the Smart Design editor.
