@@ -1,7 +1,9 @@
 <!--@layout(/layout/basic/layout.html)-->
 <!--
-  BTGin QR thank-you page (Korean, with the English meaning under it)
+  BTGin QR thank-you page (Korean only — English visitors go to btginwell.com
+  from the language picker at /qr/).
   Cafe24 skin path: /thanks/index.html  →  https://btginmall.com/thanks/
+  Built for phones and tablets, since it is only reached by scanning the QR code.
   The @layout line above wraps this page in the store's own header, footer and
   fonts, so it matches the rest of btginmall.com. Keep it as the first line.
 -->
@@ -22,20 +24,22 @@
   .btg-thanks {
     max-width: 560px;
     margin: 0 auto;
-    padding: 24px 16px 64px;
+    /* extra bottom space so the store's fixed bottom menu never covers the last line */
+    padding: 20px 16px calc(96px + env(safe-area-inset-bottom));
     color: var(--ink);
     line-height: 1.6;
     font-family: inherit;
     text-align: center;
+    word-break: keep-all;
+    -webkit-tap-highlight-color: transparent;
   }
   .btg-thanks p { margin: 0; }
-  .btg-thanks a { text-decoration: none; }
-  .btg-thanks .ko { word-break: keep-all; }
+  .btg-thanks a { text-decoration: none; touch-action: manipulation; }
 
   /* Hero: same look as the store's main banner */
   .btg-thanks .hero {
     border-radius: 24px;
-    padding: 44px 24px 40px;
+    padding: 44px 20px 36px;
     color: #fff;
     background:
       radial-gradient(circle at 85% 15%, rgba(255,255,255,.12), transparent 50%),
@@ -43,34 +47,36 @@
   }
   .btg-thanks .hero h1 {
     margin: 0;
-    font-size: clamp(26px, 7vw, 34px);
+    font-size: 28px;
     font-weight: 800;
     line-height: 1.3;
     color: #fff;
   }
-  .btg-thanks .hero .en { margin-top: 6px; font-size: 15px; color: rgba(255,255,255,.75); }
+  .btg-thanks .hero .sub { margin-top: 8px; font-size: 15px; color: rgba(255,255,255,.75); }
 
   /* White pill button, as on the store banners */
   .btg-thanks .pill {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
     margin-top: 26px;
-    padding: 13px 28px;
+    padding: 0 30px;
     border-radius: 999px;
     background: #fff;
     color: var(--brand);
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
   }
+  .btg-thanks .pill:active { transform: scale(.98); }
 
-  /* Message: Korean paragraph, English meaning under it */
-  .btg-thanks .msg { margin-top: 40px; padding: 0 4px; }
-  .btg-thanks .msg .ko { font-size: 17px; font-weight: 500; line-height: 1.8; }
-  .btg-thanks .msg .en { margin-top: 12px; font-size: 14px; line-height: 1.7; color: var(--sub); }
+  /* Message */
+  .btg-thanks .msg { margin-top: 36px; font-size: 17px; line-height: 1.85; }
 
-  .btg-thanks .rule { width: 40px; height: 2px; margin: 40px auto 0; border: 0; background: var(--line); }
+  .btg-thanks .rule { width: 40px; height: 2px; margin: 36px auto 0; border: 0; background: var(--line); }
 
   /* Store links: 2 × 2 cards */
-  .btg-thanks h2 { margin: 36px 0 0; font-size: 20px; font-weight: 800; }
+  .btg-thanks h2 { margin: 32px 0 0; font-size: 20px; font-weight: 800; }
   .btg-thanks .links {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,80 +87,79 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 20px 10px 18px;
+    justify-content: center;
+    gap: 10px;
+    min-height: 104px;
+    padding: 18px 10px;
     border-radius: 18px;
     background: var(--card);
     color: var(--ink);
+    font-size: 16px;
+    font-weight: 700;
     transition: transform .15s ease, background-color .15s ease;
   }
-  .btg-thanks .links svg { width: 26px; height: 26px; color: var(--brand); }
-  .btg-thanks .links strong { display: block; font-size: 16px; font-weight: 700; line-height: 1.3; }
-  .btg-thanks .links small { display: block; font-size: 12px; color: var(--sub); line-height: 1.3; white-space: nowrap; }
+  .btg-thanks .links a:active { transform: scale(.98); background: #eceae8; }
+  .btg-thanks .links svg { width: 28px; height: 28px; color: var(--brand); }
 
   .btg-thanks .pill:focus-visible,
-  .btg-thanks .links a:focus-visible,
-  .btg-thanks .foot a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+  .btg-thanks .links a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 
-  .btg-thanks .foot { margin-top: 40px; font-size: 14px; color: var(--sub); }
-  .btg-thanks .foot a { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--brand); text-decoration: underline; }
+  .btg-thanks .foot { margin-top: 36px; font-size: 15px; color: var(--sub); }
 
-  @media (hover: hover) {
-    .btg-thanks .links a:hover { transform: translateY(-2px); background: #eceae8; }
-  }
+  /* Tablets: same layout, a little larger */
   @media (min-width: 600px) {
-    .btg-thanks { padding-top: 40px; }
-    .btg-thanks .hero { padding: 56px 40px 52px; }
+    .btg-thanks { max-width: 640px; padding-top: 32px; }
+    .btg-thanks .hero { padding: 60px 40px 52px; border-radius: 28px; }
+    .btg-thanks .hero h1 { font-size: 36px; }
+    .btg-thanks .hero .sub { font-size: 17px; }
+    .btg-thanks .pill { min-height: 58px; font-size: 18px; padding: 0 36px; }
+    .btg-thanks .msg { font-size: 19px; margin-top: 44px; }
+    .btg-thanks h2 { font-size: 22px; }
+    .btg-thanks .links { gap: 14px; margin-top: 20px; }
+    .btg-thanks .links a { min-height: 124px; font-size: 18px; border-radius: 22px; }
+    .btg-thanks .links svg { width: 32px; height: 32px; }
+    .btg-thanks .foot { font-size: 16px; }
   }
 </style>
 
 <div class="btg-thanks">
 
   <section class="hero">
-    <h1 class="ko">고객님, 감사합니다</h1>
-    <p class="en">Thank you, dear customer</p>
+    <h1>고객님, 감사합니다</h1>
+    <p class="sub">비티진 공식몰에 오신 것을 환영합니다</p>
     <a class="pill" href="/">공식몰 쇼핑하기 →</a>
   </section>
 
-  <section class="msg">
-    <p class="ko">
-      비티진 홍삼을 선택해 주셔서<br>
-      진심으로 감사드립니다.<br>
-      정성을 담아 만든 홍삼으로<br>
-      고객님의 건강한 매일을 응원합니다.
-    </p>
-    <p class="en" lang="en">
-      Thank you for choosing BTGin red ginseng.
-      Made with care, it's here to support your health every day.
-    </p>
-  </section>
+  <p class="msg">
+    비티진 홍삼을 선택해 주셔서<br>
+    진심으로 감사드립니다.<br>
+    정성을 담아 만든 홍삼으로<br>
+    고객님의 건강한 매일을 응원합니다.
+  </p>
 
   <hr class="rule">
 
-  <h2 class="ko">공식몰 둘러보기</h2>
+  <h2>공식몰 둘러보기</h2>
 
-  <nav class="links" aria-label="BTGin mall">
+  <nav class="links" aria-label="공식몰 바로가기">
     <a href="/member/join.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8S10.5 3 8 3.5 6.5 8 12 8zM12 8s1.5-5 4-4.5S17.5 8 12 8z"/></svg>
-      <span><strong>회원 혜택</strong><small>Member benefits</small></span>
+      회원 혜택
     </a>
     <a href="/board/product/list.html?board_no=4">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>
-      <span><strong>구매후기</strong><small>Reviews</small></span>
+      구매후기
     </a>
     <a href="/board/product/list.html?board_no=6">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M9.8 9.8a2.3 2.3 0 1 1 3.2 2.1c-.6.3-1 .8-1 1.5M12 16.2h.01"/></svg>
-      <span><strong>상품문의</strong><small>Product Q&amp;A</small></span>
+      상품문의
     </a>
     <a href="/board/free/list.html?board_no=1">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10H4zM16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg>
-      <span><strong>공지사항</strong><small>Notices</small></span>
+      공지사항
     </a>
   </nav>
 
-  <div class="foot">
-    <p class="ko">오늘도 건강하고 행복한 하루 보내세요.</p>
-    <a href="https://btginwell.com" lang="en">English site →</a>
-  </div>
+  <p class="foot">오늘도 건강하고 행복한 하루 보내세요.</p>
 
 </div>

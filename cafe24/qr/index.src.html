@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>비티진 공식몰 | 언어 선택 · Select Language</title>
+  <meta name="description" content="비티진 홍삼을 구매해 주셔서 감사합니다. 언어를 선택해 주세요. — Thank you for choosing BTGin red ginseng. Please select your language.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    /* ===== Brand tokens (taken from btginmall.com) ===== */
+    :root {
+      --brand: #03419c;      /* BTGin logo blue */
+      --ink: #181818;        /* headings */
+      --sub: #6b6b70;        /* secondary text */
+      --card: #f3f2f0;       /* warm grey cards */
+      --font: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Built for phones and tablets (the page is only reached by scanning the QR code).
+       Everything is centred on the screen and clears the notch / home bar. */
+    .screen {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding:
+        calc(32px + env(safe-area-inset-top))
+        calc(20px + env(safe-area-inset-right))
+        calc(32px + env(safe-area-inset-bottom))
+        calc(20px + env(safe-area-inset-left));
+    }
+    .inner { width: 100%; max-width: 360px; }
+
+    .logo img { width: 200px; max-width: 60vw; height: auto; display: block; margin: 0 auto; }
+    .store { margin-top: 14px; font-size: 14px; color: var(--sub); }
+
+    .message {
+      margin-top: 32px;
+      padding: 22px 18px;
+      border-radius: 20px;
+      background: var(--card);
+    }
+    .message p + p { margin-top: 14px; }
+
+    .ko { display: block; font-size: 18px; font-weight: 700; word-break: keep-all; }
+    .en { display: block; font-size: 14px; color: var(--sub); margin-top: 2px; }
+
+    .langs { margin-top: 22px; display: grid; gap: 12px; }
+    .lang {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 64px;            /* large, easy tap target */
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      touch-action: manipulation;  /* no double-tap zoom delay */
+      transition: transform .15s ease;
+    }
+    .lang:active { transform: scale(.98); }
+    .lang:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+    .lang strong { display: block; font-size: 19px; font-weight: 700; }
+    .lang span { display: block; font-size: 13px; margin-top: 1px; }
+
+    .lang-ko { background: var(--brand); color: #fff; }
+    .lang-ko span { color: rgba(255,255,255,.75); }
+    .lang-en { background: #fff; color: var(--brand); border: 1.5px solid var(--brand); }
+    .lang-en span { color: var(--sub); }
+
+    /* Tablets: same layout, larger */
+    @media (min-width: 600px) {
+      .inner { max-width: 520px; }
+      .logo img { width: 300px; }
+      .store { margin-top: 18px; font-size: 17px; }
+      .message { margin-top: 44px; padding: 30px 28px; border-radius: 26px; }
+      .message p + p { margin-top: 18px; }
+      .ko { font-size: 24px; }
+      .en { font-size: 17px; margin-top: 4px; }
+      .langs { margin-top: 30px; gap: 16px; }
+      .lang { min-height: 88px; }
+      .lang strong { font-size: 25px; }
+      .lang span { font-size: 16px; }
+    }
+
+    /* Phones held sideways: tighten the spacing so it all fits */
+    @media (orientation: landscape) and (max-height: 500px) {
+      .screen { padding-top: calc(16px + env(safe-area-inset-top)); padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
+      .logo img { width: 140px; }
+      .store { margin-top: 6px; }
+      .message { margin-top: 14px; padding: 12px 16px; }
+      .message p + p { margin-top: 6px; }
+      .langs { margin-top: 12px; grid-template-columns: 1fr 1fr; }
+      .lang { min-height: 56px; }
+      .inner { max-width: 520px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="screen">
+    <div class="inner">
+      <!-- BTGin logo, built in so the page needs no separate image hosting.
+           Source file: cafe24/qr/img/btgin-logo.webp -->
+      <div class="logo"><img src="data:image/webp;base64,{{LOGO}}" width="200" height="83" alt="BTGin – Beyond Traditional Ginseng"></div>
+      <div class="store">비티진 공식몰 · Official Store</div>
+
+      <div class="message">
+        <p>
+          <span class="ko">구매해 주셔서 감사합니다</span>
+          <span class="en">Thank you for your purchase</span>
+        </p>
+        <p>
+          <span class="ko">언어를 선택해 주세요</span>
+          <span class="en">Please select your language</span>
+        </p>
+      </div>
+
+      <nav class="langs" aria-label="Language / 언어">
+        <a class="lang lang-ko" href="/thanks/" lang="ko">
+          <strong>한국어</strong>
+          <span>Korean</span>
+        </a>
+        <a class="lang lang-en" href="https://btginwell.com" lang="en">
+          <strong>English</strong>
+          <span>영어</span>
+        </a>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>

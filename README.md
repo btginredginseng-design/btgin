@@ -42,9 +42,13 @@ store uses one responsive skin, do it once.
   and were taken from btginmall.com: logo blue `#03419c`, text `#181818`,
   warm-grey cards `#eceae8`, charcoal banner, white pill buttons. The QR page
   uses the Pretendard font.
+- Both pages are built for phones and tablets, since they are only reached
+  by scanning the QR code. The `/thanks/` page is Korean only; English
+  visitors go to btginwell.com from the language picker.
 - `cafe24/qr/index.html` shows the BTGin logo, built into the page as a data
-  URI so no image hosting is needed. The source image is
-  `cafe24/qr/img/btgin-logo.webp` (480px wide, transparent background).
+  URI so no image hosting is needed. Edit `cafe24/qr/index.src.html` (or
+  replace `cafe24/qr/img/btgin-logo.webp`), then run
+  `python3 cafe24/qr/build.py` to regenerate `index.html`.
 - In `cafe24/thanks/index.html`, the Cafe24 store layout already supplies the
   header, footer and fonts.
 
