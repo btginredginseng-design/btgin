@@ -60,21 +60,25 @@ store uses one responsive skin, do it once.
 - **Layout path:** if the store's main layout file isn't
   `/layout/basic/layout.html`, change the first line of the thanks page to match.
 
-## Phones held sideways: header hides on scroll (`cafe24/motion/landscape-header.html`)
+## `/_cpb/base.html` (`cafe24/base/base.html`) — replace the whole file
 
-On a phone held sideways the store header and bottom menu cover about half the
-screen. This block slides both away while scrolling down and brings them back
-when scrolling up. PC, tablets and upright phones are unchanged, and nothing
-runs on page load, so pages never flash or jump.
+The live file plus:
 
-- **Install:** paste the file at the very end of `/_cpb/base.html` in the Smart
-  Design editor (keep everything already there).
-- **Undo:** delete the block (it starts with the `bth-land-hdr` comment).
-- An earlier, larger motion block was removed: hiding the store's loading
-  cover made pages flash while the banners were still being built.
-
-## `/_cpb/base.html` (`cafe24/base/base.html`)
-
-The live file with three changes: Swiper pinned to `11.2.10`, Pretendard pinned
-to `v1.3.9` (both the stylesheet and the font-fix script), and the sideways-phone
-header block added at the end. Replace the whole file in the Smart Design editor.
+- **Pinned versions:** Swiper `11.2.10`, Pretendard `v1.3.9` (stylesheet and
+  the font-fix script), so a new release can't change sliders or fonts.
+- **Motion v2** (`cafe24/motion/motion2026.html`, appended at the end):
+  1. Page-to-page fade into the store's own white loading cover
+     (View Transitions; older browsers load normally). The cover itself is not
+     touched, so pages never show half-built banners.
+  2. Section titles, cards and product tiles rise into view while scrolling.
+     Anything on screen at load, inside a slider, or off to the side in a
+     swipe row is never hidden.
+  3. Header hides on scroll down and returns on scroll up (PC, tablets,
+     phones held sideways; the bottom menu too on sideways phones). Upright
+     phones keep the store's own logo-row hide.
+  4. Tap feedback; on PC, tiles lift and photos zoom; the cart count pops.
+  5. Main banner: slow photo zoom and headline lines rising in, on each slide.
+  6. Coupon amounts count up when they come into view.
+- Visitors with "reduce motion" on get none of the animation.
+- Class names start with `bthm-` (the skin already uses `bth-mo` for
+  "mobile only").

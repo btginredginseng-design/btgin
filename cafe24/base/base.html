@@ -131,38 +131,200 @@ html.bth-gate-cart #contents #cpb-cart{transition:opacity .16s ease}
 }
 </style>
 
-<!-- 2026-10-16 phone held sideways (id: bth-land-hdr): the header and the bottom menu slide away while scrolling down
-     and come back when scrolling up, so the page gets the whole short screen. PC, tablets and upright phones are unchanged.
-     Nothing runs on page load. To undo, delete this block. -->
-<style id="bth-land-hdr-css">
+<!-- 2026-10-16 BTGin motion v2 (id: bthm). Page fade, scroll reveals, hide-on-scroll header, touch/hover feedback,
+     banner zoom + headline, count-up numbers. The white loading cover is left exactly as it was, so pages never flash.
+     Visitors with "reduce motion" turned on get no animation. To undo, delete this block (down to the closing </script>). -->
+<style id="bthm-css">
+@media (prefers-reduced-motion: no-preference) {
+  /* 1. Page to page: the old page fades into the store's white loading cover (Chrome, Edge, Samsung Internet, Safari 18.2+) */
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: bthmOut .28s ease both; }
+  ::view-transition-new(root) { animation: bthmIn .28s ease both; }
+
+  /* 2. Scroll reveals (set up by the script only for things below the screen, so nothing visible ever disappears) */
+  html.bthm-on #contents .bthm-rv { opacity: 0; transform: translateY(32px); }
+  html.bthm-on #contents .bthm-rv.bthm-in {
+    opacity: 1; transform: none;
+    transition: opacity .8s cubic-bezier(.16,1,.3,1) calc(var(--bthm-i, 0) * 90ms),
+                transform .8s cubic-bezier(.16,1,.3,1) calc(var(--bthm-i, 0) * 90ms) !important;
+  }
+
+  /* 4. Touch feedback everywhere, hover lift + photo zoom on PC */
+  .bth-tabbar a { transition: scale .18s ease; }
+  .bth-tabbar a:active, .bth-card:active, .bth-link-card:active, #contents .prd-box:active { scale: .97; }
+  @media (hover: hover) and (pointer: fine) {
+    html #contents .prd-box, html #contents .bth-link-card, html #contents .bth-card {
+      transition: transform .2s ease, box-shadow .35s ease, translate .4s cubic-bezier(.16,1,.3,1), scale .18s ease !important;
+    }
+    html #contents .prd-box:hover, html #contents .bth-link-card:hover { translate: 0 -6px; }
+    html #contents .bth-link-card:hover, html #contents .prd-box:hover .thumbnail { box-shadow: 0 18px 36px -12px rgba(18, 60, 115, .22); }
+    #contents .prdImg, .bth-tech-media { overflow: hidden; }
+    #contents .prdImg img.thumb, .bth-card-media img, .bth-tech-media img { transition: scale .9s cubic-bezier(.16,1,.3,1), opacity .3s ease; }
+    #contents .prd-box:hover .prdImg img.thumb, .bth-card:hover .bth-card-media img, .bth-link-card:hover .bth-tech-media img { scale: 1.07; }
+  }
+  .bthm-pop { animation: bthmPop .5s cubic-bezier(.3,1.6,.5,1); }
+
+  /* 5. Main banner: slow zoom on the photo, headline lines rise in one after another (restarts on every slide) */
+  .bth-hero-media { overflow: hidden; }
+  .bth-hero-slide.bthm-live .bth-hero-media picture { animation: bthmKen 10s cubic-bezier(.25,.6,.3,1) both; }
+  .bth-hero-slide.bthm-live .bth-hero-copy .bth-txt > * { animation: bthmLine .9s cubic-bezier(.16,1,.3,1) .25s both; }
+  .bth-hero-slide.bthm-live .bth-hero-copy .bth-txt > *:nth-child(2) { animation-delay: .4s; }
+  .bth-hero-slide.bthm-live .bth-hero-copy .bth-txt > *:nth-child(3) { animation-delay: .55s; }
+}
+/* 3. Header slides away when scrolling down and comes back when scrolling up (PC, tablets, phones held sideways;
+      upright phones keep the store's own logo-row hide) */
+#header { transition: transform .35s cubic-bezier(.16,1,.3,1); }
+:is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bthm-up #header { transform: translateY(-100%) !important; }
 @media (orientation: landscape) and (max-height: 599px) {
-  #header, .bth-tabbar { transition: transform .3s cubic-bezier(.2,.7,.2,1) !important; }
-  :is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bthl-up #header { transform: translateY(-100%) !important; }
-  :is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bthl-up .bth-tabbar { transform: translateY(110%) !important; }
+  .bth-tabbar { transition: transform .35s cubic-bezier(.16,1,.3,1) !important; }
+  :is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bthm-up .bth-tabbar { transform: translateY(110%) !important; }
 }
-@media (orientation: landscape) and (max-height: 599px) and (prefers-reduced-motion: reduce) {
-  #header, .bth-tabbar { transition: none !important; }
-}
+@media (prefers-reduced-motion: reduce) { #header, .bth-tabbar { transition: none !important; } }
+@keyframes bthmOut { to { opacity: 0; } }
+@keyframes bthmIn { from { opacity: 0; } }
+@keyframes bthmPop { 0% { scale: 1; } 40% { scale: 1.5; } 100% { scale: 1; } }
+@keyframes bthmKen { from { transform: scale(1.0); } to { transform: scale(1.08); } }
+@keyframes bthmLine { from { opacity: 0; transform: translateY(26px); } }
 </style>
-<script id="bth-land-hdr">
+<script id="bthm-js">
 (function(){
-  if (window.__bthLandHdr) return; window.__bthLandHdr = 1;
-  var h = document.documentElement, mq = window.matchMedia && matchMedia('(orientation: landscape) and (max-height: 599px)');
-  if (!mq) return;
-  var lastY = window.pageYOffset || 0, ticking = false;
-  function busy(){
-    var b = document.body;
-    return !b || b.style.overflow === 'hidden' || h.style.overflow === 'hidden' || h.classList.contains('bth-aside-open');
-  }
-  function run(){
-    ticking = false;
-    var y = window.pageYOffset || 0;
-    if (!mq.matches || y < 80 || busy()) { h.classList.remove('bthl-up'); lastY = y; return; }
-    if (y - lastY > 6) h.classList.add('bthl-up');
-    else if (lastY - y > 6) h.classList.remove('bthl-up');
-    lastY = y;
-  }
-  window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
-  window.addEventListener('resize', run);
+  if (window.__bthm) return; window.__bthm = 1;
+  var h = document.documentElement;
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ready(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+  /* 3. Header hide on scroll */
+  (function(){
+    var lastY = window.pageYOffset || 0, ticking = false;
+    function busy(){
+      var b = document.body; if (!b) return true;
+      if (b.style.overflow === 'hidden' || h.style.overflow === 'hidden' || h.classList.contains('bth-aside-open')) return true;
+      var hd = document.getElementById('header');
+      try { return !!(hd && hd.matches(':hover, :focus-within')); } catch (e) { return false; }
+    }
+    function run(){
+      ticking = false;
+      var y = window.pageYOffset || 0;
+      var upright = window.innerWidth <= 767 && window.innerHeight > window.innerWidth;
+      if (upright || y < 160 || busy()) { h.classList.remove('bthm-up'); lastY = y; return; }
+      if (y - lastY > 6) h.classList.add('bthm-up');
+      else if (lastY - y > 6) h.classList.remove('bthm-up');
+      lastY = y;
+    }
+    window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
+    window.addEventListener('resize', run);
+  })();
+
+  if (still) return;
+
+  ready(function(){
+    var IO = 'IntersectionObserver' in window;
+
+    /* 2. Scroll reveals: section titles, cards, product tiles. Sliders are left alone. */
+    if (IO) {
+      var groups = [
+        ['#contents .bth-sec .bth-head', 0],
+        ['#contents .bth-cat-grid > *', 1],
+        ['#contents .bth-people > *', 1],
+        ['#contents .bth-tech-grid > *', 1],
+        ['#contents .bth-event .bth-wrap > *', 1],
+        ['#contents .bth-globalstrip .bth-wrap', 0],
+        ['#contents .xans-product-listmain li[id^="anchorBoxId"] > .prd-box', 1],
+        ['#contents .xans-product-listnormal li[id^="anchorBoxId"] > .prd-box', 1],
+        ['#contents .cpb-board .custom-title', 0]
+      ];
+      var vh = window.innerHeight;
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (!e.isIntersecting) return;
+          var t = e.target; io.unobserve(t); t.classList.add('bthm-in');
+          setTimeout(function(){ t.classList.remove('bthm-rv', 'bthm-in'); t.style.removeProperty('--bthm-i'); }, 1400);
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      groups.forEach(function(g){
+        var els = document.querySelectorAll(g[0]);
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          if (el.closest('.mov, .btg-thanks, .swiper, .swiper-container, .swiper-wrapper')) continue;
+          var r = el.getBoundingClientRect();
+          if (r.height === 0 || r.top < vh || r.right > window.innerWidth + 1 || r.left < -1) continue;   /* on screen at load, or off to the side in a swipe row: never hidden */
+          if (g[1]) {
+            var item = el.matches('.prd-box') ? el.parentNode : el;
+            var idx = item.parentNode ? Array.prototype.indexOf.call(item.parentNode.children, item) : 0;
+            el.style.setProperty('--bthm-i', Math.max(0, idx) % 4);
+          }
+          el.classList.add('bthm-rv');
+          io.observe(el);
+        }
+      });
+      h.classList.add('bthm-on');
+      /* safety: if anything on screen is still hidden after 5s, show it */
+      setTimeout(function(){
+        var l = document.querySelectorAll('.bthm-rv:not(.bthm-in)');
+        for (var i = 0; i < l.length; i++) if (l[i].getBoundingClientRect().top < window.innerHeight) l[i].classList.remove('bthm-rv');
+      }, 5000);
+    }
+
+    /* 4. Cart count pops when it changes */
+    var counts = document.querySelectorAll('.EC-Layout-Basket-count, .bth-tabbar .ad-badge');
+    if (window.MutationObserver) for (var c = 0; c < counts.length; c++) (function(el){
+      var last = el.textContent.trim();
+      new MutationObserver(function(){
+        var now = el.textContent.trim(); if (now === last) return; last = now;
+        el.classList.remove('bthm-pop'); void el.offsetWidth; el.classList.add('bthm-pop');
+      }).observe(el, { childList: true, characterData: true, subtree: true });
+    })(counts[c]);
+
+    /* 5. Banner: mark the slide that is showing, whichever way the slider works */
+    var hero = document.querySelector('.bth-hero');
+    if (hero) {
+      var slides = hero.querySelectorAll('.bth-hero-slide');
+      var mark = function(){
+        var act = hero.querySelector('.bth-hero-slide.swiper-slide-active');
+        if (!act) {   /* no slider class: use the slide that is actually in view */
+          for (var i = 0; i < slides.length; i++) { var r = slides[i].getBoundingClientRect(); if (r.width && r.left > -10 && r.left < window.innerWidth / 2) { act = slides[i]; break; } }
+        }
+        for (var j = 0; j < slides.length; j++) if (slides[j] !== act && slides[j].classList.contains('bthm-live')) slides[j].classList.remove('bthm-live');
+        if (act && !act.classList.contains('bthm-live')) act.classList.add('bthm-live');
+      };
+      mark();
+      if (window.MutationObserver) new MutationObserver(function(){ requestAnimationFrame(mark); })
+        .observe(hero, { attributes: true, subtree: true, attributeFilter: ['class', 'style'] });
+    }
+
+    /* 6. Numbers count up when they come into view (coupon amounts, 4개국 …) */
+    if (IO) {
+      var NUM = /(\d{1,3}(?:,\d{3})+|\d+)/;
+      var boxes = document.querySelectorAll('#contents .bth-event, #contents .bth-globalstrip, [data-bth-count]');
+      var cio = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (!e.isIntersecting) return; cio.unobserve(e.target);
+          (e.target.__bthmNums || []).forEach(function(t){
+            var full = t.nodeValue, m = full.match(NUM); if (!m) return;
+            var end = parseInt(m[1].replace(/,/g, ''), 10), comma = m[1].indexOf(',') > -1;
+            var pre = full.slice(0, m.index), post = full.slice(m.index + m[1].length), t0 = null, dur = end > 999 ? 1300 : 900;
+            function step(ts){
+              if (t0 === null) t0 = ts;
+              var k = Math.min(1, (ts - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+              t.nodeValue = pre + (comma ? v.toLocaleString('en-US') : v) + post;
+              if (k < 1) requestAnimationFrame(step); else t.nodeValue = full;
+            }
+            requestAnimationFrame(step);
+          });
+        });
+      }, { threshold: 0.6 });
+      for (var b = 0; b < boxes.length; b++) {
+        var w = document.createTreeWalker(boxes[b], NodeFilter.SHOW_TEXT, null, false), n;
+        while ((n = w.nextNode())) {
+          var p = n.parentNode;
+          if (!p || /^(SCRIPT|STYLE)$/.test(p.nodeName) || p.closest('.swiper-slide-duplicate')) continue;
+          var m = n.nodeValue.match(NUM); if (!m || !(parseInt(m[1].replace(/,/g, ''), 10) >= 2)) continue;
+          if (p.getBoundingClientRect().top < window.innerHeight) continue;   /* already visible: leave it */
+          (p.__bthmNums = p.__bthmNums || []).push(n);
+          cio.observe(p);
+        }
+      }
+    }
+  });
 })();
 </script>
