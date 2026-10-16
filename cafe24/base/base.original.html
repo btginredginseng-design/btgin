@@ -1,0 +1,132 @@
+<!-- 2026-09-30 speed (skin40): the review app asks for the full Pretendard font files (~5.5 MB). The page already uses the light "dynamic subset" version of the same font, so reuse it. -->
+<script>(function(){var FULL=/pretendard\/dist\/web\/static\/pretendard\.css/,SUB='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css';function fix(n){try{if(n&&n.tagName==='LINK'&&FULL.test(n.getAttribute('href')||''))n.setAttribute('href',SUB);}catch(e){}return n}['appendChild','insertBefore'].forEach(function(m){var o=Node.prototype[m];Node.prototype[m]=function(n){fix(n);return o.apply(this,arguments)}});['append','prepend'].forEach(function(m){var o=Element.prototype[m];if(o)Element.prototype[m]=function(){for(var i=0;i<arguments.length;i++)fix(arguments[i]);return o.apply(this,arguments)}});})();</script>
+<!-- 2026-10-02 화폐 표기 통일 (skin41 전체, id: bth-won): 카페24가 출력하는 "₩259,000" 을 "259,000원" 으로 표시.
+     화면에 보이는 글자만 바꾸며 실제 가격·결제 금액 데이터는 건드리지 않음. 수량 변경 등으로 나중에 그려지는 금액도 같이 처리. -->
+<script id="bth-won">(function(){var RE=/[\u20A9\uFFE6]\s?(-?\d[\d,]*(?:\.\d+)?)/g,SYM=/^[\u20A9\uFFE6]$/,WON='\uC6D0';function next(n){var s=n.nextSibling;while(s&&s.nodeType===3&&!/\S/.test(s.nodeValue))s=s.nextSibling;return s}function alone(n){var el=n.parentNode;var a=(el&&el.nodeName==='SPAN'&&el.childNodes.length===1)?el:n;var s=next(a);if(!s)return;var t=s.textContent||'';if(!/\d/.test(t)||t.length>40)return;n.nodeValue='';if(s.nodeType===3){s.nodeValue=s.nodeValue.replace(/(-?\d[\d,]*(?:\.\d+)?)/,function(m){return m+WON});return}var u=next(s);if(u&&u.nodeType===1&&u.className&&String(u.className).indexOf('bth-won-unit')>-1)return;var sp=document.createElement('span');sp.className='bth-won-unit notranslate';sp.appendChild(document.createTextNode(WON));s.parentNode.insertBefore(sp,s.nextSibling)}function fix(n){var v=n.nodeValue;if(!v||(v.indexOf('\u20A9')<0&&v.indexOf('\uFFE6')<0))return;var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.nodeName))return;if(SYM.test(v.replace(/\s+/g,''))){alone(n);return}var r=v.replace(RE,function(m,num){return num+WON});if(r!==v)n.nodeValue=r}function walk(root){if(!root)return;if(root.nodeType===3){fix(root);return}if(root.nodeType!==1)return;var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false),n,list=[];while((n=w.nextNode()))list.push(n);for(var i=0;i<list.length;i++)fix(list[i])}if(!window.MutationObserver)return;new MutationObserver(function(ms){for(var i=0;i<ms.length;i++){var m=ms[i];if(m.type==='characterData'){fix(m.target)}else{for(var j=0;j<m.addedNodes.length;j++)walk(m.addedNodes[j])}}}).observe(document.documentElement,{childList:true,subtree:true,characterData:true});document.addEventListener('DOMContentLoaded',function(){walk(document.body)});window.addEventListener('load',function(){walk(document.body)})})();</script>
+    <!--@css(/layout/basic/css/common.css)--><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+    <!--@css(/layout/basic/css/layout.css)-->
+    <!--@css(/layout/basic/css/ec-base-ui.css)-->
+    <!--@css(/layout/basic/css/ec-base-button.css)-->
+    <!--@css(/layout/basic/css/ec-base-tab.css)-->
+    <!--@css(/layout/basic/css/ec-base-table.css)-->
+    <!--@css(/layout/basic/css/ec-base-tooltip.css)-->
+    <!--@css(/layout/basic/css/ec-base-help.css)-->
+    <!--@css(/layout/basic/css/ec-base-fold.css)-->
+    <!--@css(/layout/basic/css/ec-base-box.css)-->
+    <!--@css(/layout/basic/css/ec-base-desc.css)-->
+    <!--@css(/layout/basic/css/ec-base-product.css)-->
+  	<!--@css(/layout/basic/css/ec-base-prdInfo.css)-->
+    <!--@css(/layout/basic/css/ec-base-paginate.css)-->
+
+	<!--@css(/layout/basic/css/sub_style.css)-->
+
+	<!-- 기본 css/js -->
+    <!--@js(/layout/basic/js/basic.js)-->
+    
+    <!--@js(/js/common.js)-->
+
+    <!--@js(/ez/init.js)-->
+
+	<!-- Swiper JS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+	<!--bootstrap-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+
+	<!--root css-->
+	<!--@css(/_cpb/css/root.css)-->
+
+	<!-- 폰트-->
+	<!--@css(/_cpb/css/font.css)-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
+
+	<!--@css(/_cpb/css/custom.css)-->
+
+	<!--@css(/_cpb/css/common.css)-->
+
+	<!--슬라이드 css -->
+	<!--@css(/_cpb/css/swiper.css)-->
+
+
+
+	<!-- 할인율 -->
+	<!--@js(/js/module/product/sale_price.js)-->
+
+	<!--@js(/_cpb/js/custom.js)-->
+
+	<!-- 2026-10-02: BTGin system 2026 — the one shared style file (colours, text, buttons, spacing) and the badge script. Keep these two lines last. -->
+	<!--@css(/_cpb/css/system2026.css)-->
+	<!--@js(/_cpb/js/system2026.js)-->
+
+<!-- 2026-10-08 no-jump gate (product page buy box + cart): the block stays invisible while the page scripts finish their first pass, then fades in once in its final form. A CSS timer shows it after 3s even if a script fails. -->
+<script>
+(function(){
+  var p = location.pathname;
+  var g = /\/order\/basket\.html/.test(p) ? 'bth-gate-cart' : (/\/product\/(detail\.html|[^\/]+\/\d+(\/|$))/.test(p) ? 'bth-gate-prd' : '');
+  if (!g) return;
+  var h = document.documentElement, done = false;
+  h.classList.add(g);
+  function open(){ if (done) return; done = true; h.classList.add('bth-gate-open'); }
+  window.bthGateOpen = open;
+  setTimeout(open, 2500);
+  document.addEventListener('DOMContentLoaded', function(){
+    var el = document.querySelector(g === 'bth-gate-cart' ? '#contents #cpb-cart' : '#contents .detailArea .infoArea');
+    if (!el) { setTimeout(open, 60); return; }
+    // show the block once its height has stopped changing for 0.22s, and no later than 0.9s after the page is ready
+    var last = -1, still = 0, start = Date.now();
+    var iv = setInterval(function(){
+      var hgt = el.offsetHeight;
+      if (hgt === last) still += 55; else { still = 0; last = hgt; }
+      if (still >= 220 || Date.now() - start > 900) { clearInterval(iv); open(); }
+    }, 55);
+  });
+})();
+</script>
+<style id="bth-gate-css">
+@keyframes bthGateShow{to{opacity:1}}
+html.bth-gate-prd:not(.bth-gate-open) #contents .detailArea .infoArea,
+html.bth-gate-cart:not(.bth-gate-open) #contents #cpb-cart{opacity:0;animation:bthGateShow .01s linear 3s forwards}
+html.bth-gate-prd #contents .detailArea .infoArea,
+html.bth-gate-cart #contents #cpb-cart{transition:opacity .16s ease}
+</style>
+
+<!-- 2026-10-08: Kakao + BTGin chat buttons appear together (Kakao waits for Channel Talk, max 4s), and both hide while the side menu is open -->
+<script>
+(function(){
+  var h = document.documentElement, done = false;
+  h.classList.add('bth-fab-wait');
+  function show(){ if (done) return; done = true; h.classList.remove('bth-fab-wait'); }
+  function launcherShown(){
+    var e = document.getElementById('ch-plugin-entry'), k = e && e.firstElementChild, r = k && k.shadowRoot;
+    if (!r) return false;
+    var els = r.querySelectorAll('*');
+    for (var i = 0; i < els.length; i++) { var b = els[i].getBoundingClientRect(); if (b.width > 20 && b.height > 20) return true; }
+    return false;
+  }
+  function check(){ if (done) return; if (launcherShown() || (window.performance && performance.now() > 4000)) { show(); return; } setTimeout(check, 150); }
+  setTimeout(check, 150);
+  document.addEventListener('DOMContentLoaded', function(){
+    var a = document.getElementById('aside'); if (!a) return;
+    var upd = function(){ h.classList.toggle('bth-aside-open', a.classList.contains('act')); };
+    if (window.MutationObserver) new MutationObserver(upd).observe(a, {attributes:true, attributeFilter:['class']});
+    upd();
+  });
+})();
+</script>
+<style id="bth-fab-sync">
+:is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bth-fab-wait #footer .updown,:is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bth-fab-wait .updown{opacity:0!important;pointer-events:none!important}
+:is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bth-aside-open #footer .updown,:is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bth-aside-open .updown,:is(html,#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_).bth-aside-open #ch-plugin-entry{display:none!important}
+</style>
+
+<style id="bth-fab-home-only">
+/* 2026-10-08 phone: KakaoTalk + chat (Channel Talk) buttons show on the home page only */
+@media (max-width:767px){
+  html body:not(#main) #footer .updown,html body:not(#main) .updown,html body:not(#main) #ch-plugin-entry{display:none!important}
+  body#main #ch-plugin-entry{transition:opacity .2s ease}
+  /* 2026-10-08: on the home page both buttons stay put while scrolling (scroll-fade removed) */
+  html body#main .updown.bth-fab-hide{opacity:1!important;transform:none!important;pointer-events:auto!important}
+}
+</style>
