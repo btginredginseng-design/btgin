@@ -107,7 +107,7 @@
   .btg-thanks .foot { margin-top: 36px; font-size: 15px; color: var(--sub); }
 
   /* Tablets: same layout, a little larger */
-  @media (min-width: 600px) {
+  @media (min-width: 600px) and (min-height: 600px) {
     .btg-thanks { max-width: 640px; padding-top: 32px; }
     .btg-thanks .hero { padding: 60px 40px 52px; border-radius: 28px; }
     .btg-thanks .hero h1 { font-size: 36px; }
@@ -119,6 +119,22 @@
     .btg-thanks .links a { min-height: 124px; font-size: 18px; border-radius: 22px; }
     .btg-thanks .links svg { width: 32px; height: 32px; }
     .btg-thanks .foot { font-size: 16px; }
+  }
+
+  /* Phones held sideways: shorter banner and the 4 links in one row,
+     so more of the page fits on the short screen */
+  @media (orientation: landscape) and (max-height: 599px) {
+    .btg-thanks { max-width: 760px; padding-top: 32px; }
+    .btg-thanks .hero { padding: 24px 24px 22px; border-radius: 20px; }
+    .btg-thanks .hero h1 { font-size: 24px; }
+    .btg-thanks .hero .sub { margin-top: 4px; font-size: 14px; }
+    .btg-thanks .pill { min-height: 46px; margin-top: 16px; font-size: 16px; }
+    .btg-thanks .msg { margin-top: 24px; font-size: 16px; line-height: 1.75; }
+    .btg-thanks .rule { margin-top: 24px; }
+    .btg-thanks h2 { margin-top: 22px; font-size: 18px; }
+    .btg-thanks .links { grid-template-columns: repeat(4, 1fr); margin-top: 14px; }
+    .btg-thanks .links a { min-height: 92px; font-size: 15px; gap: 8px; }
+    .btg-thanks .foot { margin-top: 28px; }
   }
 </style>
 

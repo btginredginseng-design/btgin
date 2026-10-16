@@ -86,7 +86,7 @@
     .lang-en span { color: var(--sub); }
 
     /* Tablets: same layout, larger */
-    @media (min-width: 600px) {
+    @media (min-width: 600px) and (min-height: 600px) {
       .inner { max-width: 520px; }
       .logo img { width: 300px; }
       .store { margin-top: 18px; font-size: 17px; }
@@ -100,16 +100,30 @@
       .lang span { font-size: 16px; }
     }
 
-    /* Phones held sideways: tighten the spacing so it all fits */
-    @media (orientation: landscape) and (max-height: 500px) {
-      .screen { padding-top: calc(16px + env(safe-area-inset-top)); padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
-      .logo img { width: 140px; }
-      .store { margin-top: 6px; }
-      .message { margin-top: 14px; padding: 12px 16px; }
-      .message p + p { margin-top: 6px; }
-      .langs { margin-top: 12px; grid-template-columns: 1fr 1fr; }
-      .lang { min-height: 56px; }
-      .inner { max-width: 520px; }
+    /* Phones held sideways: logo on the left, message and buttons on the right,
+       so everything fits on one short screen without scrolling */
+    @media (orientation: landscape) and (max-height: 599px) {
+      .screen {
+        padding-top: calc(12px + env(safe-area-inset-top));
+        padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      }
+      .inner {
+        max-width: 760px;
+        display: grid;
+        grid-template-columns: 1fr 1.35fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .logo img { width: 200px; max-width: 100%; }
+      .store { margin-top: 10px; font-size: 13px; }
+      .message { margin-top: 0; padding: 14px 16px; border-radius: 16px; }
+      .message p + p { margin-top: 8px; }
+      .ko { font-size: 16px; }
+      .en { font-size: 13px; margin-top: 0; }
+      .langs { margin-top: 12px; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .lang { min-height: 56px; padding: 8px 12px; }
+      .lang strong { font-size: 17px; }
+      .lang span { font-size: 12px; }
     }
   </style>
 </head>
@@ -118,30 +132,34 @@
     <div class="inner">
       <!-- BTGin logo, built in so the page needs no separate image hosting.
            Source file: cafe24/qr/img/btgin-logo.webp -->
-      <div class="logo"><img src="data:image/webp;base64,{{LOGO}}" width="200" height="83" alt="BTGin – Beyond Traditional Ginseng"></div>
-      <div class="store">비티진 공식몰 · Official Store</div>
-
-      <div class="message">
-        <p>
-          <span class="ko">구매해 주셔서 감사합니다</span>
-          <span class="en">Thank you for your purchase</span>
-        </p>
-        <p>
-          <span class="ko">언어를 선택해 주세요</span>
-          <span class="en">Please select your language</span>
-        </p>
+      <div class="brand">
+        <div class="logo"><img src="data:image/webp;base64,{{LOGO}}" width="200" height="83" alt="BTGin – Beyond Traditional Ginseng"></div>
+        <div class="store">비티진 공식몰 · Official Store</div>
       </div>
 
-      <nav class="langs" aria-label="Language / 언어">
-        <a class="lang lang-ko" href="/thanks/" lang="ko">
-          <strong>한국어</strong>
-          <span>Korean</span>
-        </a>
-        <a class="lang lang-en" href="https://btginwell.com" lang="en">
-          <strong>English</strong>
-          <span>영어</span>
-        </a>
-      </nav>
+      <div class="choose">
+        <div class="message">
+          <p>
+            <span class="ko">구매해 주셔서 감사합니다</span>
+            <span class="en">Thank you for your purchase</span>
+          </p>
+          <p>
+            <span class="ko">언어를 선택해 주세요</span>
+            <span class="en">Please select your language</span>
+          </p>
+        </div>
+
+        <nav class="langs" aria-label="Language / 언어">
+          <a class="lang lang-ko" href="/thanks/" lang="ko">
+            <strong>한국어</strong>
+            <span>Korean</span>
+          </a>
+          <a class="lang lang-en" href="https://btginwell.com" lang="en">
+            <strong>English</strong>
+            <span>영어</span>
+          </a>
+        </nav>
+      </div>
     </div>
   </main>
 </body>
