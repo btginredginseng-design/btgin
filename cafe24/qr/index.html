@@ -3,35 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>BTGin | 언어 선택 · Select Language</title>
-  <meta name="description" content="BTGin 홍삼을 구매해 주셔서 감사합니다. 언어를 선택해 주세요. — Thank you for choosing BTGin red ginseng. Please select your language.">
+  <title>비티진 공식몰 | 언어 선택 · Select Language</title>
+  <meta name="description" content="비티진 홍삼을 구매해 주셔서 감사합니다. 언어를 선택해 주세요. — Thank you for choosing BTGin red ginseng. Please select your language.">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#7a1420">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <style>
-    /* ===== Brand tokens: change these to match btginmall.com ===== */
+    /* ===== Brand tokens (taken from btginmall.com) ===== */
     :root {
-      --brand: #7a1420;        /* main brand colour (buttons, background) */
-      --brand-deep: #4f0b14;   /* darker shade of the brand colour */
-      --accent: #c9a35b;       /* gold accent */
-      --accent-soft: #e8d6ad;
-      --font: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      --font-display: "Noto Serif KR", Georgia, serif;
+      --brand: #03419c;      /* BTGin logo blue */
+      --ink: #181818;        /* headings */
+      --sub: #6b6b70;        /* secondary text */
+      --card: #f3f2f0;       /* warm grey cards */
+      --line: #e3e0dd;
+      --font: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body { height: 100%; }
 
     body {
       font-family: var(--font);
-      color: #fff;
-      background:
-        radial-gradient(circle at 80% 8%, rgba(201,163,91,.28), transparent 45%),
-        linear-gradient(160deg, var(--brand) 0%, var(--brand-deep) 100%);
-      background-color: var(--brand-deep);
+      color: var(--ink);
+      background: #fff;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -48,53 +42,51 @@
     }
 
     .logo {
-      font-family: var(--font-display);
-      font-size: 34px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      color: #fff;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: var(--brand);
+      line-height: 1;
     }
-    .logo img { max-width: 180px; height: auto; display: block; margin: 0 auto; }
-    .tagline {
-      margin-top: 6px;
-      font-size: 13px;
-      letter-spacing: .3em;
-      color: var(--accent-soft);
-    }
+    .logo img { max-width: 160px; height: auto; display: block; margin: 0 auto; }
+    .store { margin-top: 10px; font-size: 13px; color: var(--sub); }
 
-    .rule {
-      width: 44px; height: 2px;
-      background: var(--accent);
-      margin: 28px auto;
-      border-radius: 2px;
+    .message {
+      width: 100%;
+      max-width: 340px;
+      margin-top: 32px;
+      padding: 22px 18px;
+      border-radius: 20px;
+      background: var(--card);
     }
+    .message p + p { margin-top: 14px; }
 
-    .ko { display: block; font-size: 18px; font-weight: 500; word-break: keep-all; }
-    .en { display: block; font-size: 14px; color: var(--accent-soft); margin-top: 2px; }
+    .ko { display: block; font-size: 18px; font-weight: 700; word-break: keep-all; }
+    .en { display: block; font-size: 14px; color: var(--sub); margin-top: 2px; }
 
     .langs {
       width: 100%;
-      max-width: 320px;
-      margin-top: 32px;
+      max-width: 340px;
+      margin-top: 22px;
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
     .lang {
       display: block;
-      padding: 18px 20px;
-      border-radius: 14px;
+      padding: 16px 20px;
+      border-radius: 999px;
       text-decoration: none;
-      transition: transform .15s ease, box-shadow .15s ease;
+      transition: transform .15s ease, background-color .15s ease;
     }
     .lang:active { transform: scale(.98); }
-    .lang:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-    .lang strong { display: block; font-size: 20px; font-weight: 700; }
-    .lang span { display: block; font-size: 13px; margin-top: 2px; }
+    .lang:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+    .lang strong { display: block; font-size: 19px; font-weight: 700; }
+    .lang span { display: block; font-size: 13px; margin-top: 1px; }
 
-    .lang-ko { background: #fff; color: var(--brand); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
-    .lang-ko span { color: #7b6a62; }
-    .lang-en { background: transparent; color: #fff; border: 1.5px solid var(--accent-soft); }
-    .lang-en span { color: var(--accent-soft); }
+    .lang-ko { background: var(--brand); color: #fff; }
+    .lang-ko span { color: rgba(255,255,255,.75); }
+    .lang-en { background: #fff; color: var(--brand); border: 1.5px solid var(--brand); }
+    .lang-en span { color: var(--sub); }
 
     @media (hover: hover) {
       .lang:hover { transform: translateY(-2px); }
@@ -103,21 +95,21 @@
 </head>
 <body>
   <main class="screen">
-    <!-- To use the store logo instead of text, replace "BTGin" with e.g.
-         <img src="/web/upload/your-logo.png" alt="BTGin"> -->
+    <!-- To use the store's logo image instead of text, replace "BTGin" with
+         <img src="(logo image address from the store)" alt="BTGin"> -->
     <div class="logo">BTGin</div>
-    <div class="tagline">RED GINSENG</div>
+    <div class="store">비티진 공식몰 · Official Store</div>
 
-    <div class="rule" aria-hidden="true"></div>
-
-    <p>
-      <span class="ko">구매해 주셔서 감사합니다</span>
-      <span class="en">Thank you for your purchase</span>
-    </p>
-    <p style="margin-top:14px">
-      <span class="ko">언어를 선택해 주세요</span>
-      <span class="en">Please select your language</span>
-    </p>
+    <div class="message">
+      <p>
+        <span class="ko">구매해 주셔서 감사합니다</span>
+        <span class="en">Thank you for your purchase</span>
+      </p>
+      <p>
+        <span class="ko">언어를 선택해 주세요</span>
+        <span class="en">Please select your language</span>
+      </p>
+    </div>
 
     <nav class="langs" aria-label="Language / 언어">
       <a class="lang lang-ko" href="/thanks/" lang="ko">

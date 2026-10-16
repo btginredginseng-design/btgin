@@ -6,22 +6,21 @@
   fonts, so it matches the rest of btginmall.com. Keep it as the first line.
 -->
 <style>
-  /* ===== Brand tokens: change these to match btginmall.com ===== */
+  /* ===== Brand tokens (taken from btginmall.com) ===== */
   .btg-thanks {
-    --brand: #7a1420;
-    --brand-deep: #4f0b14;
-    --accent: #c9a35b;
-    --accent-soft: #e8d6ad;
-    --paper: #fbf6ec;
-    --ink: #2a1a17;
-    --muted: #7b6a62;
-    --line: #eadfca;
+    --brand: #03419c;      /* BTGin logo blue */
+    --ink: #181818;        /* headings */
+    --sub: #6b6b70;        /* secondary text */
+    --card: #f3f2f0;       /* warm grey cards */
+    --card-strong: #eceae8;
+    --hero-1: #55555a;     /* charcoal banner */
+    --hero-2: #2e2f33;
   }
 
   /* Everything is scoped under .btg-thanks so it can't affect the store's own styles */
   .btg-thanks, .btg-thanks * { box-sizing: border-box; }
   .btg-thanks {
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 24px 16px 56px;
     color: var(--ink);
@@ -32,91 +31,86 @@
   .btg-thanks p { margin: 0; }
   .btg-thanks a { text-decoration: none; }
 
-  .btg-thanks .ko { display: block; font-size: 17px; font-weight: 500; color: var(--ink); word-break: keep-all; }
-  .btg-thanks .en { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .btg-thanks .ko { display: block; font-size: 17px; font-weight: 600; color: var(--ink); word-break: keep-all; }
+  .btg-thanks .en { display: block; font-size: 14px; color: var(--sub); margin-top: 2px; }
 
-  /* Hero */
+  /* Hero: same look as the store's main banner */
   .btg-thanks .hero {
-    text-align: center;
+    border-radius: 24px;
+    padding: 40px 24px 36px;
     color: #fff;
-    border-radius: 20px;
-    padding: 40px 20px 36px;
     background:
-      radial-gradient(circle at 80% 10%, rgba(201,163,91,.28), transparent 45%),
-      linear-gradient(160deg, var(--brand) 0%, var(--brand-deep) 100%);
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,.12), transparent 50%),
+      linear-gradient(150deg, var(--hero-1) 0%, var(--hero-2) 100%);
   }
-  .btg-thanks .seal {
-    width: 64px; height: 64px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: var(--brand-deep);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; font-weight: 700;
-    box-shadow: 0 0 0 6px rgba(201,163,91,.25);
-  }
-  .btg-thanks .hero .ko { color: #fff; font-size: clamp(24px, 6.5vw, 32px); font-weight: 700; line-height: 1.35; }
-  .btg-thanks .hero .en { color: var(--accent-soft); font-size: 15px; font-style: italic; margin-top: 4px; }
+  .btg-thanks .hero .eyebrow { font-size: 13px; letter-spacing: .08em; color: rgba(255,255,255,.7); }
+  .btg-thanks .hero .ko { color: #fff; font-size: clamp(26px, 7vw, 36px); font-weight: 800; line-height: 1.3; margin-top: 10px; }
+  .btg-thanks .hero .en { color: rgba(255,255,255,.75); font-size: 15px; margin-top: 4px; }
 
-  /* Cards */
-  .btg-thanks .card {
+  /* White pill button, as on the store banners */
+  .btg-thanks .pill {
+    display: inline-block;
+    margin-top: 26px;
+    padding: 12px 24px;
+    border-radius: 999px;
     background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 20px;
-    margin-top: 16px;
-    box-shadow: 0 8px 24px rgba(79,11,20,.06);
-  }
-  .btg-thanks .pair { padding: 12px 0; }
-  .btg-thanks .pair + .pair { border-top: 1px dashed var(--line); }
-
-  .btg-thanks .section-title { text-align: center; padding-bottom: 6px; }
-  .btg-thanks .section-title .ko { font-size: 19px; font-weight: 700; }
-
-  /* Main CTA */
-  .btg-thanks .btn-main {
-    display: block;
-    margin: 12px 0 4px;
-    padding: 16px 20px;
     text-align: center;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
-    box-shadow: 0 8px 20px rgba(122,20,32,.28);
   }
-  .btg-thanks .btn-main .ko { color: #fff; font-size: 18px; font-weight: 700; }
-  .btg-thanks .btn-main .en { color: var(--accent-soft); font-size: 13px; }
+  .btg-thanks .pill .ko { color: var(--brand); font-size: 16px; font-weight: 700; }
+  .btg-thanks .pill .en { color: var(--sub); font-size: 12px; margin-top: 0; }
 
-  /* Links into the rest of the store */
+  /* Message */
+  .btg-thanks .msg {
+    margin-top: 16px;
+    padding: 8px 22px;
+    border-radius: 20px;
+    background: var(--card);
+  }
+  .btg-thanks .pair { padding: 14px 0; }
+  .btg-thanks .pair + .pair { border-top: 1px solid #e3e0dd; }
+
+  /* Store links, styled like the store's category cards */
+  .btg-thanks .section-title { text-align: center; margin-top: 40px; }
+  .btg-thanks .section-title .ko { font-size: 22px; font-weight: 800; }
+
   .btg-thanks .links {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-top: 12px;
+    margin-top: 18px;
   }
   .btg-thanks .links a {
     display: block;
-    padding: 14px 12px;
+    padding: 20px 12px;
     text-align: center;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--paper);
+    border-radius: 18px;
+    background: var(--card-strong);
+    transition: transform .15s ease;
   }
-  .btg-thanks .links .ko { font-size: 15px; font-weight: 700; color: var(--brand); }
+  .btg-thanks .links .ko { font-size: 16px; font-weight: 700; }
   .btg-thanks .links .en { font-size: 12px; }
+  .btg-thanks .links a.join { background: var(--brand); }
+  .btg-thanks .links a.join .ko { color: #fff; }
+  .btg-thanks .links a.join .en { color: rgba(255,255,255,.75); }
 
-  .btg-thanks .btn-main:focus-visible,
+  .btg-thanks .pill:focus-visible,
   .btg-thanks .links a:focus-visible,
-  .btg-thanks .lang-switch a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .btg-thanks .lang-switch a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 
-  .btg-thanks .closing { text-align: center; margin-top: 28px; }
-  .btg-thanks .closing .ko { color: var(--brand); font-size: 15px; }
+  .btg-thanks .closing { text-align: center; margin-top: 36px; }
+  .btg-thanks .closing .ko { font-size: 15px; font-weight: 500; }
   .btg-thanks .closing .en { font-size: 13px; }
 
-  .btg-thanks .lang-switch { text-align: center; margin-top: 18px; font-size: 13px; }
-  .btg-thanks .lang-switch a { color: var(--muted); text-decoration: underline; }
+  .btg-thanks .lang-switch { text-align: center; margin-top: 16px; font-size: 13px; }
+  .btg-thanks .lang-switch a { color: var(--brand); text-decoration: underline; }
+
+  @media (hover: hover) {
+    .btg-thanks .links a:hover { transform: translateY(-2px); }
+  }
 
   /* Korean | English side by side on wider screens */
   @media (min-width: 600px) {
+    .btg-thanks .hero { padding: 56px 48px 48px; }
     .btg-thanks .msg .pair {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -131,16 +125,20 @@
 <div class="btg-thanks">
 
   <section class="hero">
-    <div class="seal" aria-hidden="true">紅</div>
+    <p class="eyebrow">BTGin · 비티진 공식몰</p>
     <p>
       <span class="ko">고객님, 감사합니다</span>
       <span class="en">Thank you, dear customer</span>
     </p>
+    <a class="pill" href="/">
+      <span class="ko">공식몰 쇼핑하기 →</span>
+      <span class="en">Shop the official mall</span>
+    </a>
   </section>
 
-  <section class="card msg">
+  <section class="msg">
     <p class="pair">
-      <span class="ko">BTGin 홍삼을 선택해 주셔서 진심으로 감사드립니다.</span>
+      <span class="ko">비티진 홍삼을 선택해 주셔서 진심으로 감사드립니다.</span>
       <span class="en">Thank you sincerely for choosing BTGin red ginseng.</span>
     </p>
     <p class="pair">
@@ -151,40 +149,37 @@
       <span class="ko">정성을 담아 만든 홍삼으로 매일의 건강을 응원합니다.</span>
       <span class="en">With red ginseng made with care, we support your health every day.</span>
     </p>
-  </section>
-
-  <section class="card">
-    <p class="section-title">
-      <span class="ko">이제 BTGin 공식몰에서 만나보세요</span>
-      <span class="en">Now come visit the official BTGin mall</span>
+    <p class="pair">
+      <span class="ko">이제 비티진 공식몰에서 더 다양한 제품을 만나보세요.</span>
+      <span class="en">Now discover more products at the official BTGin mall.</span>
     </p>
-
-    <a class="btn-main" href="/">
-      <span class="ko">공식몰 쇼핑하기 →</span>
-      <span class="en">Shop the official mall →</span>
-    </a>
-
-    <!-- Board numbers (board_no) are Cafe24 defaults; check them in
-         Admin > 게시판 관리 and adjust if your store uses different ones. -->
-    <nav class="links" aria-label="BTGin mall">
-      <a href="/member/join.html">
-        <span class="ko">회원가입</span>
-        <span class="en">Join as a member</span>
-      </a>
-      <a href="/board/product/list.html?board_no=4">
-        <span class="ko">구매후기</span>
-        <span class="en">Customer reviews</span>
-      </a>
-      <a href="/board/product/list.html?board_no=6">
-        <span class="ko">상품문의</span>
-        <span class="en">Product Q&amp;A</span>
-      </a>
-      <a href="/board/free/list.html?board_no=1">
-        <span class="ko">공지사항</span>
-        <span class="en">Notices</span>
-      </a>
-    </nav>
   </section>
+
+  <p class="section-title">
+    <span class="ko">공식몰 둘러보기</span>
+    <span class="en">Explore the official mall</span>
+  </p>
+
+  <!-- Board numbers (board_no) are Cafe24 defaults; check them in
+       Admin > 게시판 관리 and adjust if your store uses different ones. -->
+  <nav class="links" aria-label="BTGin mall">
+    <a class="join" href="/member/join.html">
+      <span class="ko">신규 회원 혜택</span>
+      <span class="en">New member benefits</span>
+    </a>
+    <a href="/board/product/list.html?board_no=4">
+      <span class="ko">구매후기</span>
+      <span class="en">Customer reviews</span>
+    </a>
+    <a href="/board/product/list.html?board_no=6">
+      <span class="ko">상품문의</span>
+      <span class="en">Product Q&amp;A</span>
+    </a>
+    <a href="/board/free/list.html?board_no=1">
+      <span class="ko">공지사항</span>
+      <span class="en">Notices</span>
+    </a>
+  </nav>
 
   <div class="closing">
     <p>

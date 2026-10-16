@@ -39,8 +39,9 @@ store uses one responsive skin, do it once.
 ## Matching the store's look
 
 - Colours are set as variables at the top of the `<style>` block in each file
-  (`--brand`, `--brand-deep`, `--accent`, …). Replace them with btginmall.com's
-  brand colours.
+  and were taken from btginmall.com: logo blue `#03419c`, text `#181818`,
+  warm-grey cards `#eceae8`, charcoal banner, white pill buttons. The QR page
+  uses the Pretendard font.
 - In `cafe24/qr/index.html`, you can replace the "BTGin" text logo with the
   store's logo image (there is a comment showing where).
 - In `cafe24/thanks/index.html`, the Cafe24 store layout already supplies the
