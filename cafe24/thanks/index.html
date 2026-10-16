@@ -106,6 +106,40 @@
 
   .btg-thanks .foot { margin-top: 36px; font-size: 15px; color: var(--sub); }
 
+  /* Motion: soft light sweep across the banner, then each part appears in turn */
+  .btg-thanks .hero { position: relative; overflow: hidden; }
+  .btg-thanks .hero > * { position: relative; }
+  @media (prefers-reduced-motion: no-preference) {
+    .btg-thanks .hero::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.16) 50%, transparent 65%);
+      transform: translateX(-100%);
+      animation: btgSweep 7s cubic-bezier(.4,0,.2,1) .9s infinite;
+    }
+    .btg-thanks .hero h1, .btg-thanks .hero .sub, .btg-thanks .pill,
+    .btg-thanks .msg, .btg-thanks .rule, .btg-thanks h2, .btg-thanks .links a, .btg-thanks .foot {
+      animation: btgRise .6s cubic-bezier(.2,.7,.2,1) backwards;
+    }
+    .btg-thanks .hero { animation: btgFade .5s ease backwards; }
+    .btg-thanks .hero .sub { animation-delay: .1s; }
+    .btg-thanks .pill { animation-delay: .2s; }
+    .btg-thanks .msg { animation-delay: .3s; }
+    .btg-thanks .rule, .btg-thanks h2 { animation-delay: .38s; }
+    .btg-thanks .links a:nth-child(1) { animation-delay: .45s; }
+    .btg-thanks .links a:nth-child(2) { animation-delay: .52s; }
+    .btg-thanks .links a:nth-child(3) { animation-delay: .59s; }
+    .btg-thanks .links a:nth-child(4) { animation-delay: .66s; }
+    .btg-thanks .foot { animation-delay: .75s; }
+    @media (hover: hover) {
+      .btg-thanks .pill, .btg-thanks .links a { transition: transform .2s ease, box-shadow .25s ease, background-color .15s ease; }
+      .btg-thanks .pill:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+      .btg-thanks .links a:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(18,60,115,.12); }
+    }
+  }
+  @keyframes btgSweep { 0% { transform: translateX(-100%); } 22%, 100% { transform: translateX(100%); } }
+  @keyframes btgRise { from { opacity: 0; transform: translateY(14px); } }
+  @keyframes btgFade { from { opacity: 0; } }
+
   /* Tablets: same layout, a little larger */
   @media (min-width: 600px) and (min-height: 600px) {
     .btg-thanks { max-width: 640px; padding-top: 32px; }

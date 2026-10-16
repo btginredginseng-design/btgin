@@ -85,6 +85,21 @@
     .lang-en { background: #fff; color: var(--brand); border: 1.5px solid var(--brand); }
     .lang-en span { color: var(--sub); }
 
+    /* Entrance: logo, message and buttons appear one after another (under 1 second) */
+    @media (prefers-reduced-motion: no-preference) {
+      .brand, .message, .lang { animation: rise .6s cubic-bezier(.2,.7,.2,1) backwards; }
+      .logo img { animation: logoIn .8s cubic-bezier(.2,.7,.2,1) backwards; }
+      .message { animation-delay: .15s; }
+      .lang-ko { animation-delay: .28s; }
+      .lang-en { animation-delay: .36s; }
+      .lang { transition: transform .15s ease, box-shadow .25s ease; }
+      @media (hover: hover) {
+        .lang:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(3, 65, 156, .18); }
+      }
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+    @keyframes logoIn { from { opacity: 0; transform: scale(.94); filter: blur(4px); } }
+
     /* Tablets: same layout, larger */
     @media (min-width: 600px) and (min-height: 600px) {
       .inner { max-width: 520px; }

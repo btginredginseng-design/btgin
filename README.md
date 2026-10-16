@@ -59,3 +59,18 @@ store uses one responsive skin, do it once.
   if your store's numbers are different.
 - **Layout path:** if the store's main layout file isn't
   `/layout/basic/layout.html`, change the first line of the thanks page to match.
+
+## Store-wide motion (`cafe24/motion/motion2026.html`)
+
+One block of CSS and JS that adds six kinds of motion to every page of the
+store: page-to-page cross-fades (View Transitions), sections rising into view,
+a header that hides on scroll down and returns on scroll up (phones held
+sideways, tablets, PC), touch and hover feedback, a slow zoom and line-by-line
+headline in the main banner, and coupon amounts counting up.
+
+- **Install:** paste the whole file at the very end of `/_cpb/base.html` in the
+  Smart Design editor. That file is loaded on every page.
+- **Undo:** delete the block again (it starts with the `bth-motion` comment).
+- Everything is skipped for visitors who turn on "reduce motion".
+- Class names start with `bthm-` so they don't clash with the store's own
+  (`bth-mo` already means "mobile only" in this skin).
