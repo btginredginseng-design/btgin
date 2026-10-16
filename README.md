@@ -42,8 +42,9 @@ store uses one responsive skin, do it once.
   and were taken from btginmall.com: logo blue `#03419c`, text `#181818`,
   warm-grey cards `#eceae8`, charcoal banner, white pill buttons. The QR page
   uses the Pretendard font.
-- In `cafe24/qr/index.html`, you can replace the "BTGin" text logo with the
-  store's logo image (there is a comment showing where).
+- `cafe24/qr/index.html` shows the BTGin logo, built into the page as a data
+  URI so no image hosting is needed. The source image is
+  `cafe24/qr/img/btgin-logo.webp` (480px wide, transparent background).
 - In `cafe24/thanks/index.html`, the Cafe24 store layout already supplies the
   header, footer and fonts.
 
