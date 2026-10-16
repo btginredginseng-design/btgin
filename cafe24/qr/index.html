@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BTGin | 언어 선택 · Select Language</title>
+  <meta name="description" content="BTGin 홍삼을 구매해 주셔서 감사합니다. 언어를 선택해 주세요. — Thank you for choosing BTGin red ginseng. Please select your language.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#7a1420">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Brand tokens: change these to match btginmall.com ===== */
+    :root {
+      --brand: #7a1420;        /* main brand colour (buttons, background) */
+      --brand-deep: #4f0b14;   /* darker shade of the brand colour */
+      --accent: #c9a35b;       /* gold accent */
+      --accent-soft: #e8d6ad;
+      --font: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      --font-display: "Noto Serif KR", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--font);
+      color: #fff;
+      background:
+        radial-gradient(circle at 80% 8%, rgba(201,163,91,.28), transparent 45%),
+        linear-gradient(160deg, var(--brand) 0%, var(--brand-deep) 100%);
+      background-color: var(--brand-deep);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Everything centred on the phone screen */
+    .screen {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: #fff;
+    }
+    .logo img { max-width: 180px; height: auto; display: block; margin: 0 auto; }
+    .tagline {
+      margin-top: 6px;
+      font-size: 13px;
+      letter-spacing: .3em;
+      color: var(--accent-soft);
+    }
+
+    .rule {
+      width: 44px; height: 2px;
+      background: var(--accent);
+      margin: 28px auto;
+      border-radius: 2px;
+    }
+
+    .ko { display: block; font-size: 18px; font-weight: 500; word-break: keep-all; }
+    .en { display: block; font-size: 14px; color: var(--accent-soft); margin-top: 2px; }
+
+    .langs {
+      width: 100%;
+      max-width: 320px;
+      margin-top: 32px;
+      display: grid;
+      gap: 14px;
+    }
+    .lang {
+      display: block;
+      padding: 18px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .lang:active { transform: scale(.98); }
+    .lang:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .lang strong { display: block; font-size: 20px; font-weight: 700; }
+    .lang span { display: block; font-size: 13px; margin-top: 2px; }
+
+    .lang-ko { background: #fff; color: var(--brand); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+    .lang-ko span { color: #7b6a62; }
+    .lang-en { background: transparent; color: #fff; border: 1.5px solid var(--accent-soft); }
+    .lang-en span { color: var(--accent-soft); }
+
+    @media (hover: hover) {
+      .lang:hover { transform: translateY(-2px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="screen">
+    <!-- To use the store logo instead of text, replace "BTGin" with e.g.
+         <img src="/web/upload/your-logo.png" alt="BTGin"> -->
+    <div class="logo">BTGin</div>
+    <div class="tagline">RED GINSENG</div>
+
+    <div class="rule" aria-hidden="true"></div>
+
+    <p>
+      <span class="ko">구매해 주셔서 감사합니다</span>
+      <span class="en">Thank you for your purchase</span>
+    </p>
+    <p style="margin-top:14px">
+      <span class="ko">언어를 선택해 주세요</span>
+      <span class="en">Please select your language</span>
+    </p>
+
+    <nav class="langs" aria-label="Language / 언어">
+      <a class="lang lang-ko" href="/thanks/" lang="ko">
+        <strong>한국어</strong>
+        <span>Korean</span>
+      </a>
+      <a class="lang lang-en" href="https://btginwell.com" lang="en">
+        <strong>English</strong>
+        <span>영어</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
