@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YOROSUM Glow Peptide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="YOROSUM Glow Peptide: низкомолекулярный рыбный коллаген в ежедневных стиках. 2 000 мг коллагена и 100 мг витамина C в одном стике. Сделано в Корее.">
+<meta property="og:title" content="YOROSUM Glow Peptide">
+<meta property="og:description" content="Низкомолекулярный рыбный коллаген в ежедневных стиках. Сделано в Корее.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F2C7D0'/%3E%3Ccircle cx='9' cy='16' r='3' fill='%238F2148'/%3E%3Cpath d='M15 9a10 10 0 0 1 0 14M20 6a14 14 0 0 1 0 20' fill='none' stroke='%23C8935A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@500&display=swap">
+<style>
+/* Layout: the page is the carton opened up. A Pantone-pink top band (the box's front) holds the turning 3D box; cream panels below read like the side and back panels: figures, directions, ingredients, where to buy. */
+:root{
+  --pink:#F2C7D0;       /* Pantone 517 C, the carton's solid pink */
+  --pink-deep:#E8AFBC;
+  --berry:#8F2148;      /* product-name ink */
+  --cream:#F8F1EA;      /* the carton's lower cream band */
+  --paper:#FFFBF8;
+  --ink:#3A1E28;
+  --mute:#7A5A65;
+  --gold:#B9834B;       /* the logo's sound arcs */
+  --line:#E6D3D8;
+  --on-berry:#FFF4F6;
+  --f-display:"Unbounded","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Golos Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --f-kr:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --pink:#3B1F29; --pink-deep:#552C3B; --berry:#F3A3B8; --cream:#1F1418; --paper:#271A1F;
+  --ink:#F5E6EA; --mute:#C2A3AD; --gold:#D9A56E; --line:#432D35; --on-berry:#2A0F19;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --pink:#3B1F29; --pink-deep:#552C3B; --berry:#F3A3B8; --cream:#1F1418; --paper:#271A1F;
+  --ink:#F5E6EA; --mute:#C2A3AD; --gold:#D9A56E; --line:#432D35; --on-berry:#2A0F19;
+  color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--pink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--berry);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.1;text-wrap:balance;margin:0;color:var(--berry)}
+h2{font-size:clamp(1.6rem,3.6vw,2.4rem);letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:500}
+p{margin:0}
+.kr{font-family:var(--f-kr);font-weight:500}
+.label{font:500 .74rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.lead{font-size:1.15rem;max-width:34ch}
+.muted{color:var(--mute)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--pink);border-bottom:1px solid color-mix(in srgb,var(--berry) 14%,transparent)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--berry);flex-shrink:0}
+.logo svg{width:28px;height:20px}
+.logo b{font:600 1rem/1 var(--f-display);letter-spacing:.24em}
+.logo .kr{font-size:.8rem;color:var(--mute)}
+.nav{display:flex;gap:22px;margin-left:auto;font-size:.95rem}
+.nav a{text-decoration:none;color:var(--ink)}
+.nav a:hover{color:var(--berry)}
+.lang{display:flex;border:1px solid var(--berry);border-radius:999px;overflow:hidden;flex-shrink:0}
+.lang button{all:unset;cursor:pointer;font:500 .78rem/1 var(--f-mono);letter-spacing:.08em;padding:8px 12px;color:var(--berry)}
+.lang button[aria-pressed="true"]{background:var(--berry);color:var(--on-berry)}
+.lang button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+@media (max-width:820px){.nav{display:none}.lang{margin-left:auto}}
+
+/* hero: the pink front panel */
+.hero{background:var(--pink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;padding-block:56px 72px}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero h1{font-size:clamp(3rem,8.4vw,6.2rem);font-weight:500;letter-spacing:-.03em;line-height:.95}
+.hero h1 span{display:block;font-size:.26em;letter-spacing:.32em;font-weight:600;margin-bottom:.9em;color:var(--ink)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font:500 .95rem/1 var(--f-body);text-decoration:none;border:1px solid var(--berry);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.solid{background:var(--berry);color:var(--on-berry)}
+.btn.ghost{color:var(--berry)}
+.stage{display:grid;justify-items:center;gap:14px;min-width:0}
+.scene{--k:2.05px;max-width:100%;width:calc(95*var(--k)*1.75);height:calc(143*var(--k)*1.3);display:grid;place-items:center;perspective:1300px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.scene.dragging{cursor:grabbing}
+.box{--w:calc(95*var(--k));--d:calc(60*var(--k));--h:calc(143*var(--k));position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;transform:rotateX(-12deg) rotateY(-32deg)}
+.face{position:absolute;inset:0;background:var(--cream) center/100% 100% no-repeat;backface-visibility:hidden}
+.face.front{background-image:url(assets/carton-front.jpg);transform:translateZ(calc(var(--d)/2))}
+.face.back{background-image:url(assets/carton-back.jpg);transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
+.face.right,.face.left{width:var(--d);left:calc((var(--w) - var(--d))/2)}
+.face.right{background-image:url(assets/carton-right.jpg);transform:rotateY(90deg) translateZ(calc(var(--w)/2));filter:brightness(.93)}
+.face.left{background-image:url(assets/carton-left.jpg);transform:rotateY(-90deg) translateZ(calc(var(--w)/2));filter:brightness(.93)}
+.face.top,.face.bottom{height:var(--d);top:calc((var(--h) - var(--d))/2)}
+.face.top{background-image:url(assets/carton-top.jpg);transform:rotateX(90deg) translateZ(calc(var(--h)/2));filter:brightness(1.04)}
+.face.bottom{background:#EFE3DA;transform:rotateX(-90deg) translateZ(calc(var(--h)/2))}
+.shadow{width:calc(95*var(--k)*1.5);height:22px;margin-top:-18px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--ink) 28%,transparent),transparent)}
+.hint{font:400 .78rem/1 var(--f-mono);letter-spacing:.06em;color:var(--mute)}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:36px 48px}
+  .scene{--k:1.55px}
+}
+
+/* sections */
+section{scroll-margin-top:80px}
+.band{padding-block:80px}
+.band.paper{background:var(--paper)}
+.sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:640px}
+
+/* per-stick figures */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fig{padding:28px 20px 26px;display:grid;gap:8px;align-content:start;min-width:0}
+.fig + .fig{border-left:1px solid var(--line)}
+.fig .num{font:500 clamp(1.9rem,3.6vw,2.7rem)/1 var(--f-display);color:var(--berry);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.fig .num small{font-size:.45em;letter-spacing:.02em;margin-left:.15em}
+@media (max-width:820px){.figs{grid-template-columns:1fr 1fr}.fig:nth-child(3){border-left:0}.fig:nth-child(n+3){border-top:1px solid var(--line)}}
+.note{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;max-width:720px;align-items:start}
+.note .label{padding-top:4px}
+
+/* directions */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:10px;align-content:start}
+.band.paper .step{background:var(--cream)}
+.step .ico{width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;color:var(--berry)}
+.step .ico svg{width:22px;height:22px}
+@media (max-width:820px){.steps{grid-template-columns:1fr}}
+.aside-line{margin-top:22px;color:var(--mute);font-size:.95rem}
+
+/* ingredients */
+.ingr{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.ingr > *{min-width:0}
+.ingr-list{font-size:.98rem;line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-block:18px 4px}
+.chip{font:500 .8rem/1 var(--f-mono);padding:8px 12px;border-radius:999px;background:var(--pink);color:var(--berry)}
+.facts{display:grid;gap:18px;margin-top:28px}
+.fact h3{margin-bottom:6px}
+.fact p{font-size:.95rem}
+.nutri{border:1.5px solid var(--berry);border-radius:14px;overflow:hidden;background:var(--paper)}
+.nutri header{background:var(--berry);color:var(--on-berry);padding:16px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.nutri header b{font:500 1.1rem/1.2 var(--f-display)}
+.nutri header span{font:400 .8rem/1.3 var(--f-mono)}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{padding:10px 18px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font:500 .72rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+tr.sub td:first-child{padding-left:34px;color:var(--mute)}
+tbody tr:last-child td{border-bottom:0}
+.nutri footer{padding:12px 18px;font-size:.8rem;color:var(--mute);border-top:1px solid var(--line)}
+@media (max-width:820px){.ingr{grid-template-columns:1fr;gap:36px}}
+
+/* origin */
+.origin{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.stamp{width:150px;height:150px;border-radius:50%;border:1.5px solid var(--berry);display:grid;place-items:center;text-align:center;color:var(--berry);padding:16px}
+.stamp b{font:600 .95rem/1.25 var(--f-display);letter-spacing:.12em}
+.stamp span{font:400 .7rem/1.3 var(--f-mono);letter-spacing:.1em;display:block;margin-top:6px}
+dl.spec{display:grid;grid-template-columns:max-content 1fr;gap:12px 28px;margin:20px 0 0}
+dl.spec dt{font:500 .74rem/1.6 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+dl.spec dd{margin:0;min-width:0}
+@media (max-width:640px){.origin{grid-template-columns:1fr}.stamp{width:120px;height:120px}dl.spec{grid-template-columns:1fr;gap:2px}dl.spec dd{margin-bottom:12px}}
+
+/* where to buy */
+.markets{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.market{border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:18px;background:var(--paper);align-content:start}
+.market .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.market .price{font:500 1.6rem/1 var(--f-display);color:var(--berry);font-variant-numeric:tabular-nums}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.lnk{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;border:1px solid var(--berry);color:var(--berry);text-decoration:none;font-size:.92rem;font-weight:500}
+.lnk:hover{background:var(--pink)}
+.lnk.soon{border-style:dashed;border-color:var(--line);color:var(--mute);cursor:default}
+.lnk.soon:hover{background:none}
+.lnk .tag{font:400 .7rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:820px){.markets{grid-template-columns:1fr}}
+
+/* wholesale */
+.b2b{background:var(--berry);color:var(--on-berry);border-radius:28px;padding:48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.b2b > *{min-width:0}
+.b2b h2{color:var(--on-berry)}
+.b2b .label{color:color-mix(in srgb,var(--on-berry) 70%,transparent)}
+.b2b ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.b2b li{display:flex;gap:12px;align-items:baseline}
+.b2b li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--gold);transform:translateY(-2px)}
+.b2b .lnk{border-color:var(--on-berry);color:var(--on-berry)}
+.b2b .lnk:hover{background:color-mix(in srgb,var(--on-berry) 14%,transparent)}
+.b2b .lnk.soon{border-color:color-mix(in srgb,var(--on-berry) 40%,transparent);color:color-mix(in srgb,var(--on-berry) 70%,transparent)}
+.b2b-side{display:grid;gap:18px;align-content:start}
+@media (max-width:820px){.b2b{grid-template-columns:1fr;padding:32px 24px;border-radius:22px}}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding-block:36px 48px;font-size:.88rem;color:var(--mute)}
+.foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot strong{color:var(--ink);font-weight:500}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="YOROSUM">
+      <svg viewBox="0 0 28 20" aria-hidden="true"><circle cx="4" cy="10" r="3" fill="currentColor"/><path d="M11 3.5a9 9 0 0 1 0 13M16.5 1a13 13 0 0 1 0 18" fill="none" style="stroke:var(--gold)" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <b>YOROSUM</b><span class="kr">여러숨</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#product" data-i18n="nav.product">Продукт</a>
+      <a href="#ingredients" data-i18n="nav.ingredients">Состав</a>
+      <a href="#buy" data-i18n="nav.buy">Где купить</a>
+      <a href="#wholesale" data-i18n="nav.wholesale">Оптом</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-ru" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="label" data-i18n="hero.eyebrow">Made in Korea · 30 стиков · вкус персика</p>
+        <h1><span>YOROSUM</span>Glow Peptide</h1>
+        <p class="lead" data-i18n="hero.lead">Низкомолекулярный рыбный коллаген в ежедневных стиках. Один стик в день: 2&nbsp;000&nbsp;мг коллагена и 100&nbsp;мг витамина C.</p>
+        <div class="cta-row">
+          <a class="btn solid" href="#buy" data-i18n="hero.cta">Где купить</a>
+          <a class="btn ghost" href="#wholesale" data-i18n="hero.cta2">Оптовым партнёрам</a>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="scene" id="scene" aria-label="YOROSUM Glow Peptide carton, 95 × 60 × 143 mm" role="img">
+          <div class="box" id="box">
+            <div class="face front"></div>
+            <div class="face right"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+        <div class="shadow" aria-hidden="true"></div>
+        <p class="hint" data-i18n="hero.hint">Потяните, чтобы повернуть коробку</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="product">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label" data-i18n="fig.eyebrow">1 стик · 3 г</p>
+        <h2 data-i18n="fig.title">Что в одном стике</h2>
+      </div>
+      <div class="figs">
+        <div class="fig"><div class="num">2&nbsp;000<small data-i18n="u.mg">мг</small></div><p data-i18n="fig.collagen">рыбного коллагена</p></div>
+        <div class="fig"><div class="num">100<small data-i18n="u.mg">мг</small></div><p data-i18n="fig.vitc">витамина C</p></div>
+        <div class="fig"><div class="num">300<small data-i18n="u.da">Да</small></div><p data-i18n="fig.da">средняя молекулярная масса коллагена</p></div>
+        <div class="fig"><div class="num">10<small data-i18n="u.kcal">ккал</small></div><p data-i18n="fig.kcal">в одном стике</p></div>
+      </div>
+      <div class="note">
+        <p class="label" data-i18n="note.label">300 Да?</p>
+        <p class="muted" data-i18n="note.text">Дальтон (Да) — единица массы молекул. Чем меньше число, тем короче цепочки пептидов. Средняя молекулярная масса рыбного коллагена в Glow Peptide — 300 Да, поэтому на упаковке он назван низкомолекулярным.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band paper" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label" data-i18n="how.eyebrow">Ежедневный ритуал</p>
+        <h2 data-i18n="how.title">Как принимать</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="8" y="3" width="8" height="18" rx="2"/><path d="M8 7h8"/></svg></div>
+          <h3 data-i18n="how.1t">Один стик в день</h3>
+          <p class="muted" data-i18n="how.1p">Один раз в день, по одному стику.</p>
+        </div>
+        <div class="step">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 4h12l-1.5 16h-9z"/><path d="M6.6 10h10.8"/></svg></div>
+          <h3 data-i18n="how.2t">Запивая водой</h3>
+          <p class="muted" data-i18n="how.2p">Порошок впитывает влагу, поэтому принимайте его сразу после вскрытия стика.</p>
+        </div>
+        <div class="step">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div>
+          <h3 data-i18n="how.3t">30 стиков на 30 дней</h3>
+          <p class="muted" data-i18n="how.3p">В коробке 30 стиков по 3 г, 90 г продукта.</p>
+        </div>
+      </div>
+      <p class="aside-line" data-i18n="how.taste">Вкус персика: 10% состава — персиковый порошок.</p>
+    </div>
+  </section>
+
+  <section class="band" id="ingredients">
+    <div class="wrap ingr">
+      <div>
+        <div class="sec-head" style="margin-bottom:20px">
+          <p class="label" data-i18n="ing.eyebrow">Полный состав с упаковки</p>
+          <h2 data-i18n="ing.title">Состав</h2>
+        </div>
+        <p class="ingr-list" data-i18n="ing.list">Рыбный коллаген (Индия), персиковый порошок [кристаллическая фруктоза, безводная глюкоза, порошок персикового концентрата {декстрин, персиковый концентрат (персик: США)}, ароматизатор (персик), декстрин, лимонная кислота, диоксид кремния, ферментированная стевия (подсластитель), поваренная соль (Корея)], безводная глюкоза, смесь (декстрин, пропиленгликоль, синтетический ароматизатор, этанол, гуммиарабик, этилацетат), витамин C, ксилит (подсластитель), безводная лимонная кислота, DL-яблочная кислота, порошок экстракта сока бамбука (Индия), ферментированная стевия (подсластитель), гидролизат эластина, концентрат молочного белка, сукралоза (подсластитель).</p>
+        <div class="chips">
+          <span class="chip" data-i18n="ing.c1">Гидролизат эластина 0,1%</span>
+          <span class="chip" data-i18n="ing.c2">Экстракт сока бамбука 1%</span>
+          <span class="chip" data-i18n="ing.c3">Персиковый порошок 10%</span>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <h3 data-i18n="ing.allergT">Аллергены</h3>
+            <p data-i18n="ing.allergP">Содержит рыбу (рыбный коллаген), молоко и персик. Произведено на предприятии, где также перерабатывают яйца, гречиху, арахис, сою, пшеницу, скумбрию, крабов, креветок, свинину, томаты, сульфиты, грецкие орехи, курицу, говядину, кальмаров, моллюсков (включая устриц, морское ушко и мидии) и кедровые орехи.</p>
+          </div>
+          <div class="fact">
+            <h3 data-i18n="ing.storeT">Хранение</h3>
+            <p data-i18n="ing.storeP">В прохладном месте, защищённом от прямых солнечных лучей. Хранить в недоступном для детей месте.</p>
+          </div>
+          <div class="fact">
+            <h3 data-i18n="ing.cautT">Меры предосторожности</h3>
+            <p data-i18n="ing.cautP">Проверяйте срок годности и соблюдайте способ приёма. При аллергии или повышенной чувствительности сначала ознакомьтесь с составом. Будьте осторожны, чтобы не порезаться о край упаковки. Детям давайте продукт под присмотром взрослых: можно поперхнуться.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nutri" aria-labelledby="nutri-title">
+        <header><b id="nutri-title" data-i18n="nut.title">Пищевая ценность</b><span data-i18n="nut.sub">90 г · 30 стиков × 3 г</span></header>
+        <div class="tbl">
+          <table>
+            <thead><tr><th></th><th data-i18n="nut.per">1 стик</th><th data-i18n="nut.box">Коробка</th></tr></thead>
+            <tbody>
+              <tr><td data-i18n="nut.kcal">Энергетическая ценность</td><td data-i18n="nut.kcal1">10 ккал</td><td data-i18n="nut.kcal2">335 ккал</td></tr>
+              <tr><td data-i18n="nut.prot">Белки</td><td data-i18n="nut.g2">2 г</td><td data-i18n="nut.g60">60 г</td></tr>
+              <tr><td data-i18n="nut.carb">Углеводы</td><td data-i18n="nut.lt1">&lt; 1 г</td><td data-i18n="nut.g24">24 г</td></tr>
+              <tr class="sub"><td data-i18n="nut.sug">в т.ч. сахара</td><td data-i18n="nut.lt05">&lt; 0,5 г</td><td data-i18n="nut.g13">13 г</td></tr>
+              <tr><td data-i18n="nut.fat">Жиры</td><td data-i18n="nut.g0">0 г</td><td data-i18n="nut.g0">0 г</td></tr>
+              <tr><td data-i18n="nut.na">Натрий</td><td data-i18n="nut.mg10">10 мг</td><td data-i18n="nut.mg250">250 мг</td></tr>
+              <tr><td data-i18n="nut.c">Витамин C</td><td data-i18n="nut.mg100">100 мг</td><td data-i18n="nut.mg3000">3 000 мг</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <footer data-i18n="nut.foot">Данные с корейской упаковки продукта.</footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="band paper" id="origin">
+    <div class="wrap origin">
+      <div class="stamp"><div><b>MADE IN<br>KOREA</b><span class="kr">대한민국</span></div></div>
+      <div>
+        <div class="sec-head" style="margin-bottom:0">
+          <p class="label" data-i18n="or.eyebrow">Происхождение</p>
+          <h2 data-i18n="or.title">Произведено в Республике Корея</h2>
+        </div>
+        <dl class="spec">
+          <dt data-i18n="or.mfrT">Производитель</dt>
+          <dd data-i18n="or.mfr">Hankook CNS Pharm Co., Ltd., уезд Ымсон, провинция Чхунчхон-Пукто, Республика Корея</dd>
+          <dt data-i18n="or.distT">Дистрибьютор</dt>
+          <dd data-i18n="or.dist">Shilla Global Trading, Тэджон, Республика Корея</dd>
+          <dt data-i18n="or.typeT">Тип продукта</dt>
+          <dd data-i18n="or.type">Пищевой продукт (в Корее: «прочий переработанный пищевой продукт», 기타가공품)</dd>
+          <dt data-i18n="or.regT">Рег. номер в Корее</dt>
+          <dd>20030445025-912</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="buy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label" data-i18n="buy.eyebrow">Розница</p>
+        <h2 data-i18n="buy.title">Где купить</h2>
+      </div>
+      <div class="markets">
+        <article class="market">
+          <div class="row">
+            <h3 data-i18n="buy.uz">Узбекистан</h3>
+            <span class="price">250&nbsp;000 <small data-i18n="u.sum">сум</small></span>
+          </div>
+          <div class="links">
+            <a class="lnk" data-link="uzum" href="#">Uzum Market</a>
+            <a class="lnk" data-link="telegram" href="#">Telegram</a>
+            <a class="lnk" data-link="instagram" href="#">Instagram</a>
+          </div>
+        </article>
+        <article class="market">
+          <div class="row">
+            <h3 data-i18n="buy.kr">Республика Корея</h3>
+            <span class="price">34&nbsp;900 ₩</span>
+          </div>
+          <div class="links">
+            <a class="lnk" data-link="naver" href="#">Naver Smart Store</a>
+            <a class="lnk" data-link="kakao" href="#">KakaoTalk</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="wholesale" style="padding-top:0">
+    <div class="wrap">
+      <div class="b2b">
+        <div class="sec-head" style="margin-bottom:0">
+          <p class="label" data-i18n="b2b.eyebrow">B2B</p>
+          <h2 data-i18n="b2b.title">Оптовым партнёрам</h2>
+          <p data-i18n="b2b.text">Товар на складах в Узбекистане и в Республике Корея. Пришлём оптовый прайс-лист и документы на продукт.</p>
+        </div>
+        <div class="b2b-side">
+          <ul>
+            <li data-i18n="b2b.l1">Аптеки и магазины здорового питания</li>
+            <li data-i18n="b2b.l2">Косметологи и салоны красоты</li>
+            <li data-i18n="b2b.l3">Фитнес-клубы и студии</li>
+            <li data-i18n="b2b.l4">Реселлеры корейских товаров</li>
+          </ul>
+          <div class="links">
+            <a class="lnk" data-link="telegram" href="#">Telegram</a>
+            <a class="lnk" data-link="email" href="#">Email</a>
+            <a class="lnk" data-link="whatsapp" href="#">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>YOROSUM</strong> <span class="kr">여러숨</span> · Glow Peptide · © 2026</p>
+    <p data-i18n="foot.legal">Пищевой продукт. Не является лекарственным средством.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Edit your links here. Leave a value empty ("") and the button shows as "soon". =====
+   telegram:  https://t.me/your_username
+   instagram: https://instagram.com/your_handle
+   email:     you@example.com   (plain address, no "mailto:")
+   whatsapp:  https://wa.me/998XXXXXXXXX
+   uzum / naver / kakao: the full product or store page URL */
+const LINKS = {
+  telegram: "",
+  instagram: "",
+  email: "",
+  whatsapp: "",
+  uzum: "",
+  naver: "",
+  kakao: ""
+};
+
+const EN = {
+  "nav.product":"Product","nav.ingredients":"Ingredients","nav.buy":"Where to buy","nav.wholesale":"Wholesale",
+  "hero.eyebrow":"Made in Korea · 30 sticks · peach flavour",
+  "hero.lead":"Low-molecular fish collagen in daily sticks. One stick a day: 2,000&nbsp;mg collagen and 100&nbsp;mg vitamin C.",
+  "hero.cta":"Where to buy","hero.cta2":"For wholesale partners","hero.hint":"Drag to turn the box",
+  "fig.eyebrow":"1 stick · 3 g","fig.title":"What's in one stick",
+  "u.mg":"mg","u.da":"Da","u.kcal":"kcal","u.sum":"sum",
+  "fig.collagen":"fish collagen","fig.vitc":"vitamin C","fig.da":"average molecular weight of the collagen","fig.kcal":"per stick",
+  "note.label":"300 Da?",
+  "note.text":"A dalton (Da) is a unit of molecular mass. The smaller the number, the shorter the peptide chains. The fish collagen in Glow Peptide has an average molecular weight of 300 Da, which is why the box calls it low-molecular.",
+  "how.eyebrow":"Daily routine","how.title":"How to take",
+  "how.1t":"One stick a day","how.1p":"Once a day, one stick.",
+  "how.2t":"With water","how.2p":"The powder absorbs moisture, so take it right after opening the stick.",
+  "how.3t":"30 sticks for 30 days","how.3p":"Each box holds 30 sticks of 3 g, 90 g in total.",
+  "how.taste":"Peach flavour: 10% of the formula is peach powder.",
+  "ing.eyebrow":"Full list from the box","ing.title":"Ingredients",
+  "ing.list":"Fish collagen (India), peach-flavour powder [crystalline fructose, anhydrous glucose, peach concentrate powder {dextrin, peach concentrate (peach: USA)}, flavouring (peach), dextrin, citric acid, silicon dioxide, enzyme-treated stevia (sweetener), refined salt (Korea)], anhydrous glucose, mixed preparation (dextrin, propylene glycol, synthetic flavouring, ethanol, gum arabic, ethyl acetate), vitamin C, xylitol (sweetener), anhydrous citric acid, DL-malic acid, bamboo sap extract powder (India), enzyme-treated stevia (sweetener), elastin hydrolysate, milk protein concentrate powder, sucralose (sweetener).",
+  "ing.c1":"Elastin hydrolysate 0.1%","ing.c2":"Bamboo sap extract 1%","ing.c3":"Peach powder 10%",
+  "ing.allergT":"Allergens",
+  "ing.allergP":"Contains fish (fish collagen), milk and peach. Made in a facility that also handles eggs, buckwheat, peanuts, soybeans, wheat, mackerel, crab, shrimp, pork, tomato, sulphites, walnuts, chicken, beef, squid, shellfish (including oyster, abalone and mussel) and pine nuts.",
+  "ing.storeT":"Storage","ing.storeP":"Keep in a cool place out of direct sunlight and out of reach of children.",
+  "ing.cautT":"Cautions",
+  "ing.cautP":"Check the use-by date and follow the directions. If you have allergies or a sensitive constitution, read the ingredients first. Take care not to cut yourself on the packaging. Children should take it under adult supervision because of the risk of choking.",
+  "nut.title":"Nutrition facts","nut.sub":"90 g · 30 sticks × 3 g","nut.per":"1 stick","nut.box":"Box",
+  "nut.kcal":"Energy","nut.kcal1":"10 kcal","nut.kcal2":"335 kcal",
+  "nut.prot":"Protein","nut.g2":"2 g","nut.g60":"60 g",
+  "nut.carb":"Carbohydrate","nut.lt1":"&lt; 1 g","nut.g24":"24 g",
+  "nut.sug":"of which sugars","nut.lt05":"&lt; 0.5 g","nut.g13":"13 g",
+  "nut.fat":"Fat","nut.g0":"0 g","nut.na":"Sodium","nut.mg10":"10 mg","nut.mg250":"250 mg",
+  "nut.c":"Vitamin C","nut.mg100":"100 mg","nut.mg3000":"3,000 mg",
+  "nut.foot":"Figures from the product's Korean label.",
+  "or.eyebrow":"Origin","or.title":"Made in the Republic of Korea",
+  "or.mfrT":"Manufacturer","or.mfr":"Hankook CNS Pharm Co., Ltd., Eumseong-gun, Chungcheongbuk-do, Republic of Korea",
+  "or.distT":"Distributor","or.dist":"Shilla Global Trading, Daejeon, Republic of Korea",
+  "or.typeT":"Product type","or.type":"Food product (in Korea: “other processed food”, 기타가공품)",
+  "or.regT":"Korean product report no.",
+  "buy.eyebrow":"Retail","buy.title":"Where to buy","buy.uz":"Uzbekistan","buy.kr":"Republic of Korea",
+  "b2b.eyebrow":"B2B","b2b.title":"For wholesale partners",
+  "b2b.text":"Stock is held in Uzbekistan and in the Republic of Korea. We'll send you our wholesale price list and product documents.",
+  "b2b.l1":"Pharmacies and health food stores","b2b.l2":"Cosmetologists and beauty salons","b2b.l3":"Fitness clubs and studios","b2b.l4":"Resellers of Korean products",
+  "foot.legal":"Food product. Not a medicine.",
+  "soon":"soon"
+};
+const RU_SOON = "скоро";
+
+const nodes = [...document.querySelectorAll("[data-i18n]")];
+const RU = {};
+nodes.forEach(n => { RU[n.dataset.i18n] = n.innerHTML; });
+let lang = "ru";
+
+function renderLinks(){
+  document.querySelectorAll("[data-link]").forEach(a => {
+    const key = a.dataset.link;
+    const val = (LINKS[key] || "").trim();
+    if (!a.dataset.name) a.dataset.name = a.textContent;
+    if (val) {
+      a.classList.remove("soon");
+      a.removeAttribute("aria-disabled");
+      a.href = key === "email" ? "mailto:" + val : val;
+      a.textContent = key === "email" ? val : a.dataset.name;
+      if (key !== "email") { a.target = "_blank"; a.rel = "noopener"; }
+    } else {
+      a.classList.add("soon");
+      a.setAttribute("aria-disabled", "true");
+      a.removeAttribute("href");
+      a.innerHTML = "";
+      a.append(a.dataset.name + " ");
+      const t = document.createElement("span");
+      t.className = "tag";
+      t.textContent = lang === "en" ? EN.soon : RU_SOON;
+      a.append(t);
+    }
+  });
+}
+
+function setLang(l){
+  lang = l === "en" ? "en" : "ru";
+  const dict = lang === "en" ? EN : RU;
+  nodes.forEach(n => { const v = dict[n.dataset.i18n]; if (v != null) n.innerHTML = v; });
+  document.documentElement.lang = lang;
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  renderLinks();
+  try { localStorage.setItem("yorosum-lang", lang); } catch (e) {}
+}
+
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+let initial = null;
+if (location.hash === "#en" || location.hash === "#ru") initial = location.hash.slice(1);
+if (!initial) { try { initial = localStorage.getItem("yorosum-lang"); } catch (e) {} }
+if (!initial) {
+  const nav = (navigator.language || "ru").toLowerCase();
+  initial = /^(ru|uz|kk|ky|tg|be|uk|az|hy|ka|tk|mn)/.test(nav) ? "ru" : "en";
+}
+setLang(initial);
+
+/* turning carton: slow idle turn, drag to spin */
+(function(){
+  const scene = document.getElementById("scene");
+  const box = document.getElementById("box");
+  const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let ry = -32, rx = -12, drag = null, idleAt = 0;
+  const draw = () => { box.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`; };
+  scene.addEventListener("pointerdown", e => {
+    drag = { x: e.clientX, y: e.clientY, ry, rx };
+    scene.setPointerCapture(e.pointerId);
+    scene.classList.add("dragging");
+  });
+  scene.addEventListener("pointermove", e => {
+    if (!drag) return;
+    ry = drag.ry + (e.clientX - drag.x) * 0.5;
+    rx = Math.max(-40, Math.min(25, drag.rx - (e.clientY - drag.y) * 0.3));
+    draw();
+  });
+  const end = () => { drag = null; idleAt = performance.now() + 2500; scene.classList.remove("dragging"); };
+  scene.addEventListener("pointerup", end);
+  scene.addEventListener("pointercancel", end);
+  if (still) return;
+  let last = performance.now();
+  (function tick(now){
+    const dt = Math.min(64, now - last); last = now;
+    if (!drag && now > idleAt) { ry += dt * 0.012; draw(); }
+    requestAnimationFrame(tick);
+  })(last);
+})();
+</script>
+</body>
+</html>
