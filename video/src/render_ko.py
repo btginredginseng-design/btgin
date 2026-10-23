@@ -161,6 +161,21 @@ P_POUCH = load_product(5, 860)
 P_FIN = load_product(4, 520)
 
 
+def load_logo(width):
+    im = Image.open(f"{IMG}/6.webp").convert("RGBA")
+    im = im.crop(im.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox())
+    return im.resize((width, int(im.height * width / im.width)), Image.LANCZOS)
+
+
+LOGO_BIG = load_logo(760)
+LOGO_SMALL = load_logo(150)
+
+
+def put_img(fr, im, x, y, a):
+    if a > .003:
+        fr.alpha_composite(with_alpha(im, a), (int(x), int(y)))
+
+
 def vignette():
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
     d = np.sqrt(((xx - W / 2) / (W * .62)) ** 2 + ((yy - H / 2) / (H * .62)) ** 2)
@@ -246,9 +261,7 @@ def captions(fr, i):
 def card_logo(f):
     fr = Image.new("RGBA", (W, H), BG + (255,))
     a = fade(f, 4, None, 18)
-    put(fr, text_img("BTGin", "InterDisplay-Bold", 120, RED, .02), W / 2, 430, a, 10 * (1 - es(f / 24)), "c")
-    a2 = fade(f, 14, None, 18)
-    put(fr, text_img("GINSENG & GINSENOSIDE FOR HUMAN HEALTH", "Inter-Medium", 20, GOLD, .3), W / 2, 590, a2, 0, "c")
+    put_img(fr, LOGO_BIG, (W - LOGO_BIG.width) / 2, (H - LOGO_BIG.height) / 2 + 10 * (1 - es(f / 24)), a)
     return fr
 
 
@@ -348,17 +361,20 @@ def card_final(f):
     place_product(fr, P_FIN, W - 90 - P_FIN.width, (H - P_FIN.height) // 2, fade(f, 0, None, 20))
     x = 150
     items = [("하루 한 포,", "ko", 84, INK, 330), ("나를 챙기는 시간", "ko", 84, RED, 440),
-             ("진홍삼 데일리 밸런스", "ko", 40, INK, 600), ("BTGin  ·  Made in Korea", "Inter-Medium", 24, GOLD, 666)]
+             ("진홍삼 데일리 밸런스", "ko", 40, INK, 600)]
     for k, (txt, fn, sz, col, y) in enumerate(items):
         t = 8 + k * 8
         put(fr, text_img(txt, fn, sz, col, .02 if fn == "ko" else .12), x, y, fade(f, t, None, 18), 14 * (1 - es((f - t) / 22)))
+    t = 32
+    put_img(fr, LOGO_SMALL, x, 664 + 14 * (1 - es((f - t) / 22)), fade(f, t, None, 18))
+    put(fr, text_img("Made in Korea", "Inter-Medium", 22, GOLD, .12), x + LOGO_SMALL.width + 22, 680, fade(f, t + 4, None, 18))
     la = fade(f, 30, None, 16)
     rect(fr, (x, 572, x + int(90 * la), 574), GOLD, la)
     # badges
     cx = x
     for k, b in enumerate(["6년근 국내산", "HACCP 식품안전관리인증"]):
         t = 44 + k * 5
-        cx += chip(fr, cx, 740, b, fade(f, t, None, 14), 8 * (1 - es((f - t) / 18)), False, 26) + 12
+        cx += chip(fr, cx, 790, b, fade(f, t, None, 14), 8 * (1 - es((f - t) / 18)), False, 26) + 12
     # fade to black at the very end
     out = es((f - (FIN_LEN - 20)) / 20)
     if out > 0:
