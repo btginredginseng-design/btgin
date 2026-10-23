@@ -1,0 +1,1 @@
+eq=brightness=0.015:contrast=1.05:saturation=0.9:gamma=1.07,huesaturation=saturation=-0.5:colors=g+y,colorbalance=bs=0.02:bm=0.01:rm=0.004:gm=-0.006:bh=0.008,curves=all='0/0.03 0.35/0.39 0.75/0.86 1/1',format=gbrp,split[x][y];[y]gblur=sigma=30[bl];[x][bl]blend=all_mode=screen:all_opacity=0.14,format=yuv420p
