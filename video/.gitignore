@@ -1,0 +1,3 @@
+# Rendered videos are too large for git (~100 MB); rebuild with video/src
+*.mp4
+*.wav

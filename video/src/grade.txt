@@ -1,0 +1,1 @@
+huesaturation=hue=-8:saturation=-0.75:strength=6:colors=g+c,huesaturation=saturation=-0.4:strength=3:colors=y,colorbalance=rs=-0.04:gs=0.0:bs=0.05:rm=0.02:gm=-0.02:bm=-0.01:rh=0.05:gh=0.015:bh=-0.05,curves=all='0/0.03 0.2/0.14 0.5/0.47 0.8/0.82 1/0.95',eq=saturation=1.08
