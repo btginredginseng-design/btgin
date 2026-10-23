@@ -1,0 +1,23 @@
+{
+  "_comment": "Beat-map rules. The video-feedback skill edits these when notes reveal a pattern (e.g. 'too many graphics' -> raise min_graphic_gap).",
+  "sentence_gap": 0.45,
+  "hook_seconds": 4.0,
+  "min_graphic_gap": 2.5,
+  "max_graphics_per_10s": 2,
+  "rest_after_big": 3.0,
+  "graphic_min_intensity": 2,
+  "music_snap": 0.12,
+  "lead_frames": 2,
+  "treatments": {
+    "stat": "number-counter",
+    "list": "list-card",
+    "emphasis": "keyword-pop",
+    "question": "question-card",
+    "turn": "punch-in",
+    "section": "section-title",
+    "hook": "kinetic-headline",
+    "line": "caption-only"
+  },
+  "list_markers": ["first", "second", "third", "fourth", "fifth", "step", "number", "tip", "rule", "lastly", "finally"],
+  "turn_markers": ["but", "however", "instead", "actually", "except", "until"]
+}

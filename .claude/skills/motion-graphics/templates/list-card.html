@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Treatment: list-card (list beat). Numbered card, left-aligned in the safe area. Items reveal on their spoken times. -->
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  html, body { margin: 0; background: transparent; }
+  #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--font-body); }
+  .card { position: absolute; left: var(--safe-x); top: 50%; transform: translateY(-50%); min-width: 640px; padding: 36px 48px;
+          background: var(--plate); border-radius: var(--radius); box-shadow: var(--shadow); opacity: 0; }
+  .item { display: flex; align-items: baseline; gap: 22px; font-size: var(--size-body); color: var(--ink); opacity: 0; margin: 10px 0; }
+  .item b { font-family: var(--font-display); font-weight: var(--weight-display); color: var(--accent); min-width: 1.2em; }
+</style></head>
+<body>
+<div id="root" data-composition-id="{{ID}}" data-width="1920" data-height="1080" data-duration="{{DURATION}}">
+  <div class="card" data-qc-align="left" data-qc-safe="title">{{ITEMS_HTML}}</div>  <!-- <div class="item" data-at="0.4"><b>1</b>Cut the silences</div> -->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="../hf-timeline.js"></script>
+<script>
+  const D = parseFloat(document.getElementById("root").dataset.duration);
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(".card", { yPercent: -50, opacity: 0, x: -50 }, { yPercent: -50, opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0);
+  document.querySelectorAll(".item").forEach((it) =>
+    tl.fromTo(it, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.22, ease: "power2.out" }, parseFloat(it.dataset.at)));
+  tl.to(".card", { opacity: 0, duration: 0.25, ease: "power2.in" }, D - 0.25);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["{{ID}}"] = tl;
+</script>
+</body></html>

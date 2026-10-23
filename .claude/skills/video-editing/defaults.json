@@ -1,0 +1,15 @@
+{
+  "_comment": "Tunable defaults for plan_cuts.py. The video-feedback skill updates these when a note reveals a systematic problem. CLI flags override them per run.",
+  "pad_pre": 0.08,
+  "pad_post": 0.14,
+  "max_pause": 0.35,
+  "phrase_gap": 0.5,
+  "retake_similarity": 0.72,
+  "retake_lookahead": 3,
+  "retake_window": 45.0,
+  "snap_window": 0.06,
+  "fillers": ["um", "uh", "uhh", "umm", "erm", "er", "ah", "hmm", "mm"],
+  "cue_phrases": ["scratch that", "let me start over", "start over", "let me redo", "let me try that again", "one more time", "cut that", "redo that", "from the top"],
+  "drop_stutters": true,
+  "min_keep": 0.25
+}

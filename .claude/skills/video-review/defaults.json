@@ -1,0 +1,22 @@
+{
+  "_comment": "QC thresholds. The video-feedback skill tightens these when a note reports an error QC missed.",
+  "safe_margin_x": 0.05,
+  "safe_margin_y": 0.05,
+  "center_tolerance": 0.02,
+  "edge_alignment_tolerance": 0.012,
+  "graphic_diff_threshold": 40,
+  "graphic_samples": 3,
+  "av_duration_tolerance_frames": 1,
+  "sync_max_offset_ms": 60,
+  "sync_window_s": 10,
+  "silent_word_ratio_max": 0.15,
+  "dead_air_db": -45,
+  "dead_air_min_s": 1.2,
+  "black_min_s": 0.1,
+  "freeze_min_s": 1.5,
+  "loudness_target_lufs": -14,
+  "loudness_tolerance": 1.5,
+  "true_peak_max_db": -1.0,
+  "flash_threshold": 18,
+  "click_ratio": 8.0
+}

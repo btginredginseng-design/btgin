@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Treatment: kinetic-headline (hook, intensity 3). Words land one by one ON the spoken word times. -->
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  html, body { margin: 0; background: transparent; }
+  #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--font-display); }
+  /* Centered by layout (inset + flex), NOT by transform: the timeline owns `transform`, and any tween
+     on .line would wipe a translate(-50%) and shove the text off-center. */
+  .stage { position: absolute; inset: var(--safe-y) var(--safe-x); display: flex; align-items: center; justify-content: center; }
+  .line { max-width: 100%; text-align: center; font-weight: var(--weight-display); font-size: var(--size-hero); line-height: 1.02;
+          color: var(--ink); text-shadow: var(--shadow); letter-spacing: -0.02em; }
+  .w { display: inline-block; opacity: 0; margin: 0 0.12em; }
+  .w.key { color: var(--accent); }
+</style></head>
+<body>
+<div id="root" data-composition-id="{{ID}}" data-width="1920" data-height="1080" data-duration="{{DURATION}}">
+  <div class="stage"><div class="line" data-qc-align="center" data-qc-safe="title">{{WORDS_HTML}}</div></div>  <!-- e.g. <span class="w" data-at="0.00">Stop</span><span class="w key" data-at="0.31">wasting</span> -->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="../hf-timeline.js"></script>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  document.querySelectorAll(".w").forEach((w) => {
+    const at = parseFloat(w.dataset.at);
+    tl.fromTo(w, { opacity: 0, y: 40, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2)" }, at);
+  });
+  const D = parseFloat(document.getElementById("root").dataset.duration);
+  tl.to(".line", { opacity: 0, y: -30, duration: 0.25, ease: "power2.in" }, D - 0.25);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["{{ID}}"] = tl;
+</script>
+</body></html>

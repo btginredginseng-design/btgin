@@ -1,0 +1,21 @@
+/* Design tokens: generated from the project's design.md by the video-design skill.
+   Every graphic reads ONLY these variables. No hard-coded colors, fonts or timings in compositions. */
+:root {
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --weight-display: 800;
+  --ink: #ffffff;            /* primary text on footage */
+  --ink-dark: #0b0b0f;       /* text on accent fills */
+  --accent: #ffd400;         /* ONE accent; used for the single most important word */
+  --accent-2: #2f6bff;       /* secondary, data only */
+  --plate: rgba(11, 11, 15, 0.78);
+  --radius: 18px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --safe-x: 6%;              /* title-safe margins (QC checks against these) */
+  --safe-y: 8%;
+  --size-hero: 132px;        /* sizes are for 1920x1080; scale with --u */
+  --size-title: 84px;
+  --size-body: 46px;
+  --dur-in: 0.35s;           /* keep in sync with motion section of design.md */
+  --dur-out: 0.25s;
+}

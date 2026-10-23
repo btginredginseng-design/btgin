@@ -1,0 +1,14 @@
+# Media is large and binary: keep it out of git. Text artifacts (EDLs, beat maps, compositions) are committed.
+projects/*/raw/
+projects/*/music/
+projects/*/research/raw/
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.m4a
+projects/*/graphics/*/check_*.png
+projects/*/out/qc/*.png
+__pycache__/
+node_modules/
