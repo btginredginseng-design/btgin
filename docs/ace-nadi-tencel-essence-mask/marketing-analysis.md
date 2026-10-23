@@ -1,335 +1,193 @@
-# ACE NADI Tencel Essence Mask: Product Analysis & Marketing Guide
+# ACE NADI 텐셀 에센스 마스크: 최종 마케팅 분석 (Korea, Final)
 
-What this draws on: the packaging (front and back), the Manufacturing Certificate (formula statement dated 2026-09-01), the Certificate of Analysis (batch OTC-260901), the MFDS functional-cosmetic report (기능성화장품 심사 제외 품목 보고서, filed 2026-09-10), and the raw-material MSDS/TDS pack (31 suppliers' files).
-
-Percentages are taken from the manufacturing certificate. Per-sheet amounts assume 23 ml ≈ 23 g (essence density ≈ 1.0); they are estimates, not lab figures.
+> 한국 온라인 판매(상세페이지) 기준 최종본입니다.
+> - 제품 사실 정보는 `product-details.md`가 기준입니다.
+> - 이 문서는 포지셔닝, 상세페이지 구성, 카피, 광고 표현 가이드를 다룹니다.
 
 ---
 
-## 1. Product snapshot
+## 1. 한 줄 정의
 
-| Item | Detail |
-|---|---|
-| Product name | ACE NADI Tencel Essence Mask / 에이스 나디 텐셀 에센스 마스크 |
-| Category | Sheet mask, dual-functional cosmetic: **brightening + wrinkle improvement** (미백 & 주름개선 2중 기능성) |
-| Volume | 23 ml / 0.81 oz essence per sheet |
-| Sheet | Premium Tencel (lyocell) sheet |
-| Manufacturer & responsible seller | BTGin Co., Ltd. (㈜비티진), 28 Jiphyeonjungang 4-ro, Sejong, Korea |
-| Brand planning & operation | 자프테르 글로벌, Seoul |
-| Customer line / web | 070-7863-2244 / www.acenadi.com |
-| Barcode (EAN-13) | 8809293060447 |
-| Shelf life | 36 months from manufacture (batch OTC-260901: made 2026-09-01, expires 2029-08-31) |
-| Origin | Made in Korea |
-| Formula size | 59 INCI ingredients |
+**"제조사가 직접 만든, 미백·주름개선 2중 기능성 발효 마스크"**
 
-## 2. Regulatory & quality credentials (marketing-usable)
+나이아신아마이드 2%와 아데노신으로 기능을 담당합니다. 여기에 유산균 발효 PDRN·쌀·인삼 발효 성분과 BTGin 자체 홍삼 진세노사이드를 담아 K-바이오 스토리를 더했습니다.
 
-### 2.1 MFDS functional cosmetic (Korea)
-- Reported to the Ministry of Food and Drug Safety as a **functional cosmetic** under the notified-standard route (심사 제외 품목 보고).
-  - Receipt no. **202601365916**, reported **2026-09-10**.
-- Active ingredients per 100 g:
-  - **Niacinamide 2.0 g (2%)**: brightening
-  - **Adenosine 0.04 g (0.04%)**: wrinkle improvement
-- Approved efficacy wording (use this exactly in Korea):
-  - 피부의 미백에 도움을 준다.
-  - 피부의 주름개선에 도움을 준다.
-- Reported pH: 6.7.
+## 2. 시장 맥락 (한국 시트마스크)
 
-### 2.2 Certificate of Analysis, batch OTC-260901 (issued 2026-09-23): **PASSED**
+- **카테고리 상황**
+  - 시트마스크는 가장 경쟁이 치열한 카테고리입니다.
+  - 올리브영·쿠팡·스마트스토어에서 대량 묶음 구성(10매·30매)과 할인 경쟁이 일상적입니다.
+  - "성분 + 기능성 + 신뢰"가 없으면 가격 경쟁에 빠지기 쉽습니다.
+- **트렌드 키워드**
+  - PDRN과 "발효/유산균", 시카, 4중 히알루론산, 기능성(미백·주름) 2중·3중 표기가 주요 키워드입니다.
+  - PDRN은 연어 유래 제품이 주류이므로, **"발효 유래(비연어) PDRN"은 차별 포인트**입니다.
+  - 단, 이 제품의 PDRN 함량은 미량이라 메인 헤드라인으로 쓰면 위험합니다 (§7).
+- **소비자가 상세페이지에서 확인하는 것**
+  - 기능성 여부
+  - 핵심 성분과 함량
+  - 시트 밀착감·에센스 양
+  - 무첨가 여부
+  - 제조 신뢰도
+  - 후기
 
-| Test | Spec | Result |
+이 제품은 리뷰를 제외한 모든 항목에 대해 근거 서류를 갖추고 있습니다.
+
+## 3. 핵심 차별점 (USP), 우선순위 순
+
+| 순위 | 차별점 | 근거 | 상세페이지 비중 |
+|---|---|---|---|
+| 1 | **미백·주름개선 2중 기능성** | 식약처 기능성 보고, 나이아신아마이드 2%·아데노신 0.04% | 최상단 |
+| 2 | **제조사 직접 생산** (배합→충진→실링→제조번호→검수) | 제조증명서, 생산 영상 | 크게 |
+| 3 | **품질 시험 결과**: 중금속 4종·미생물 불검출, 함량 적합 | 시험성적서 | 크게 |
+| 4 | **7종 발효 성분 + 발효 유래 PDRN** | 배합표, 원료 TDS | 중간 (함유 표현) |
+| 5 | **BTGin 자체 홍삼 진세노사이드** | 원료 MSDS (BTEX-D, ㈜비티진 제조) | 중간 (브랜드 스토리) |
+| 6 | **4종 히알루론산 + 23ml 에센스** | 배합표, 패키지 | 중간 |
+| 7 | **텐셀 시트** | 패키지 | 중간 (상표 확인 후) |
+| 8 | **파라벤·페녹시에탄올·알코올 무첨가** | 전성분 + 원료 MSDS 31종 대조 | 작게, 신뢰 배지 |
+
+## 4. 타깃 고객
+
+| 세그먼트 | 니즈 | 메시지 |
 |---|---|---|
-| pH (25 °C) | 6.70 ± 0.50 | 6.50 |
-| Lead / Arsenic / Mercury / Cadmium | ≤10 / ≤2 / ≤1 / ≤5 mg/kg | **Not detected** (all four) |
-| Total microbial count | ≤1,000 cfu/g | **Not detected** |
-| Molds & yeasts | ≤100 cfu/g | **Not detected** |
-| Pathogens | Negative | Negative |
-| Niacinamide assay | 90–130% | Conforms |
-| Adenosine assay | 90–130% | Conforms |
+| **25~39세 직장인 여성** (메인) | 칙칙함·잔주름 초기 관리를 한 번에, 간편하게 | "한 장으로 미백·주름개선 2중 케어" |
+| **40대 이상** | 주름개선 기능성 확인, 신뢰할 수 있는 제조 | "제조사가 직접 만들고 시험한 기능성 마스크" |
+| **성분 관심층** (화해·올리브영 리뷰어) | 전성분·함량 투명성 | 핵심 성분 함량표, 무첨가 근거 공개 |
+| **선물 수요** (카카오 선물하기, 명절) | 고급스러운 패키지, 브랜드 신뢰 | 라벤더 럭셔리 톤, 박스 구성 |
 
-Usable lines:
-- "Every batch lab-tested: heavy metals and microbes not detected."
-- "Active ingredients verified by assay."
+## 5. 상세페이지 구성 (섹션별 스토리보드)
 
-## 3. Formula decoded
+권장 구성은 세로형 860px(스마트스토어)과 780px(쿠팡) 두 가지입니다.
 
-Water is 86.36%. The other **13.64%** is the functional formula, grouped below into the stories it can support.
+### ① 히어로 (첫 화면)
+- 비주얼: 파우치 정면 + 라벤더 그라데이션 배경. 영상 엔드카드 톤과 동일하게 맞춥니다.
+- 헤드라인: **한 장으로 완성하는 미백 · 주름개선 2중 기능성**
+- 서브: 나이아신아마이드 2% + 아데노신 | 1매 23ml 에센스
+- 배지 3개: `미백·주름개선 2중 기능성` `파라벤·페녹시에탄올 무첨가` `MADE IN KOREA`
 
-### 3.1 Functional actives (the claims engine)
+### ② 생산 영상 (GIF/MP4 삽입)
+- 제작한 57초 영상, 또는 그중 충진·실링·검수 구간 GIF를 사용합니다.
+- 카피: **배합부터 검수까지, 직접 만듭니다**
+- 서브: 세종 BTGin 자체 제조시설에서 한 장 한 장 생산합니다
 
-| Ingredient | % | ≈ per sheet | Role |
-|---|---|---|---|
-| Niacinamide | 2.0% | ~460 mg | MFDS brightening active; tone, dullness, barrier support |
-| Adenosine | 0.04% | ~9 mg | MFDS wrinkle-improvement active |
+### ③ 기능성 근거
+- 큰 숫자 카드 2개
+  - **2%** 나이아신아마이드: 피부 미백에 도움
+  - **0.04%** 아데노신: 피부 주름개선에 도움
+- 하단 작은 글씨: "본 제품은 미백·주름개선 기능성화장품입니다."
 
-### 3.2 Hydration system
-- **4 types of hyaluronic acid**, 0.016% combined (from the IndiMix Hyal Multi-4 complex). Multi-molecular-weight HA supports a "layered hydration" story.
+### ④ 핵심 성분 (4개 블록)
+1. **4종 히알루론산**: 분자 크기가 다른 4가지 히알루론산이 층층이 수분 공급
+2. **7종 발효 성분**: 유산균 발효 PDRN 원료 · 쌀 발효 · 인삼 발효 · 콩 발효 · 율무 발효 · 감자 발효
+3. **BTGin 홍삼 진세노사이드**: 홍삼 전문 제조사 ㈜비티진의 자체 원료
+4. **센텔라 4대 성분**: 마데카소사이드 · 아시아티코사이드 · 아시아틱애씨드 · 마데카식애씨드
 
-  | Type | % |
-  |---|---|
-  | Sodium Hyaluronate | 0.0106% |
-  | Hydrolyzed Hyaluronic Acid | 0.0036% |
-  | Hyaluronic Acid | 0.0016% |
-  | Hydrolyzed Sodium Hyaluronate | 0.0002% |
+각 블록 하단에 "함유" 표현을 쓰고 PDRN은 함량을 표기합니다 (§7).
 
-- Other humectants and soothers:
-  - Glycerin 1.04% (vegetable grade, AKCERINE™ 997VEG)
-  - Betaine 0.4%
-  - Panthenol 0.075%
-  - Allantoin 0.1%
-  - Arginine 0.2%
-  - Beta-Glucan 0.0006%
+### ⑤ 시트 & 에센스
+- 텐셀 시트 근접 사진: 시트를 펼친 모습, 에센스가 떨어지는 장면
+- 카피: **부드럽게 밀착되는 텐셀 시트 · 1매 23ml 넉넉한 에센스**
 
-### 3.3 Fermented "K-beauty bio" complex (7 ferment-derived ingredients)
-- **Lactobacillus Ferment Filtrate + Sodium DNA (FERMAGEN™ LAB-PDRN, triNbio).**
-  - The supplier describes it as *probiotics derived from kimchi*.
-  - It is a **fermentation-derived PDRN, not salmon-derived.**
-- **Natural SW ferment complex** (5 ferments):
-  - Lactobacillus/Soybean Ferment Extract
-  - Lactobacillus/Rice Ferment
-  - **Lactobacillus/Panax Ginseng Root Ferment Filtrate**
-  - Saccharomyces/Coix (Job's Tears) Seed Ferment Filtrate
-  - Saccharomyces/Potato Ferment Filtrate
-- Lactobacillus/Rice Ferment Filtrate.
+### ⑥ 품질 시험 결과
+- 아이콘 3개
+  - 중금속 4종 **불검출**
+  - 미생물 **불검출**
+  - 기능성 성분 함량 **적합**
+- 시험성적서 이미지를 축소 첨부합니다. 담당자 서명·도장은 가려도 됩니다.
+- 각주: "* 자사 품질 시험성적서 기준 (Lot. OTC-260901)"
 
-### 3.4 Rice story (front-of-pack hero)
-- Oryza Sativa (Rice) Extract, plus two rice ferments (Lactobacillus/Rice Ferment and Rice Ferment Filtrate).
-- Suggested line: "Rice, three ways: extract + ferment + ferment filtrate."
+### ⑦ 무첨가
+- 파라벤 · 페녹시에탄올 · 에탄올 · 미네랄오일 · 실리콘 무첨가
 
-### 3.5 Cica / Centella (Super Centella)
-- All 4 key centella triterpenes (TECA-type profile):
+### ⑧ 사용법 (4컷 일러스트, 패키지와 동일)
+- 세안·토너 → 마스크 밀착 → 10~20분 후 제거 → 남은 에센스 흡수
 
-  | Compound | % |
-  |---|---|
-  | Madecassoside | 0.0003% |
-  | Asiaticoside | 0.0002% |
-  | Asiatic Acid | 0.00002% |
-  | Madecassic Acid | 0.00002% |
+### ⑨ 브랜드 스토리
+- ACE NADI 로고 + "자연의 흐름(Nadi)을 담은 프리미엄 스킨케어" 류의 브랜드 문구 (브랜드팀 확정 필요)
 
-### 3.6 Ginseng (brand heritage hook: BTGin)
-- Ginsenosides 0.001%.
-- Lactobacillus/Panax Ginseng Root Ferment Filtrate.
-- *This is not on the pack front yet. It is a strong differentiator for a red-ginseng company.*
+### ⑩ 정보고시 표 · 전성분 · 주의사항
+- `product-details.md` §2, §4, §7을 그대로 사용합니다.
 
-### 3.7 Peptide trio
-- Acetyl Hexapeptide-8 (known in trade as Argireline-type)
-- Palmitoyl Pentapeptide-4 (Matrixyl-type)
-- Copper Tripeptide-1 (GHK-Cu)
+## 6. 카피 뱅크 (그대로 사용 가능)
 
-All three are present at trace levels: 0.0000075%, 0.0000075% and 0.00002%.
+### 메인 헤드라인 후보
+- 한 장으로 완성하는 미백 · 주름개선 2중 기능성
+- 칙칙함과 잔주름, 20분 한 장으로 케어
+- 제조사가 직접 만든 2중 기능성 발효 마스크
 
-### 3.8 Botanical complexes (10 extracts)
-- **AF-24:**
-  - Plantago Asiatica
-  - Persimmon (Diospyros Kaki) Leaf
-  - Willow Bark
-  - Elm Bark
-  - Kelp (Laminaria Digitata)
-- **IndiMultiEx BTJC-E3:**
-  - Houttuynia Cordata (어성초)
-  - Rosemary
-  - Soapwort
-  - Carrot Root
-  - Safflower
-- Kojic Acid 0.005% (a tone-care supporter, not a claimed active).
+### 서브 카피
+- 나이아신아마이드 2%와 아데노신, 기능성 두 가지를 한 장에
+- 유산균 발효 성분과 4종 히알루론산으로 촉촉하게
+- 부드럽게 밀착되는 텐셀 시트에 23ml 에센스를 가득
+- 배합부터 검수까지, BTGin이 직접 만듭니다
+- 한 장 한 장, 직접 검수합니다
 
-### 3.9 Nourishing 5-oil complex (0.5% total)
-- The complex is sold as "EWG GREEN 5 Oil Complex".
-- Five plant oils at 0.1% each:
-  - Olive
-  - Sweet Almond
-  - Coconut
-  - Sunflower
-  - Castor
+### 스마트스토어 · 쿠팡 상품명 (권장)
+`에이스나디 텐셀 에센스 마스크 23ml 미백 주름개선 2중 기능성 나이아신아마이드 아데노신 시트마스크팩`
 
-### 3.10 Base & preservation
-- Solvents and conditioners:
-  - Isopentyldiol
-  - 1,2-Hexanediol
-  - Propanediol
-  - Butylene Glycol
-  - Pentylene Glycol
-  - Caprylyl Glycol
-  - Ethylhexylglycerin
-- Texture: Carbomer and Xanthan Gum.
-- Other functional ingredients:
-  - Solubilizers: PEG-40 Hydrogenated Castor Oil and PPG-26-Buteth-26
-  - Chelator: Disodium EDTA
-  - Fragrance 0.06%
+- 묶음 상품은 "10매 / 30매"를 앞에 추가합니다.
+- 상품명에 성분명을 넣으면 해당 성분 함량을 표기해야 합니다 (화장품법 시행규칙 표시 기준).
+- 나이아신아마이드·아데노신은 함량 표기가 가능하므로 안전합니다.
+- **PDRN은 상품명에 넣지 마세요.**
 
-### 3.11 "Free-from" facts (verified against the full ingredient list)
-- ✅ No parabens
-- ✅ No phenoxyethanol
-- ✅ No ethanol (alcohol)
-- ✅ No mineral oil
-- ✅ No silicones
-- ✅ No sulfates
-- ❌ **Not** fragrance-free. *Do not claim "fragrance-free" or "unscented".*
+### 검색 키워드 / 태그
+- 마스크팩, 시트마스크, 기능성마스크팩, 미백마스크팩, 주름개선마스크팩
+- 나이아신아마이드마스크, 아데노신, 텐셀마스크, 발효마스크팩, 유산균마스크팩
+- 히알루론산마스크팩, 시카마스크팩, 수분마스크팩, 데일리마스크팩, 선물용마스크팩
 
-## 4. Positioning
+### SNS 해시태그
+#에이스나디 #ACENADI #텐셀마스크 #미백주름개선 #2중기능성 #나이아신아마이드 #발효마스크 #마스크팩추천 #데일리팩
 
-**Core positioning:** a clinical-grade dual-functional mask (MFDS-reported brightening + anti-wrinkle) with a K-bio heart: probiotic PDRN, ferments, rice and ginseng, delivered on an eco-minded Tencel sheet.
+## 7. 광고 표현 가이드 (한국 화장품법 기준)
 
-**Pillars**
-
-| Pillar | Proof points |
+| ✅ 사용 가능 | ❌ 사용 금지 / ⚠️ 조건부 |
 |---|---|
-| **Proven Function** | MFDS functional cosmetic report; niacinamide 2% + adenosine; assay-verified per batch |
-| **Bio-Fermented Care** | Kimchi-probiotic PDRN, 7 ferments, ginseng ferment |
-| **Deep Layered Hydration** | 4 HAs, glycerin, betaine, panthenol, 23 ml essence |
-| **Calm & Comfort** | Centella 4 compounds, allantoin, panthenol, houttuynia |
-| **Clean & Sheet** | Paraben- and phenoxyethanol-free; heavy metals and microbes not detected; Tencel sheet |
+| 피부 미백에 도움, 피부 주름개선에 도움 | ❌ "미백 효과 100%", "주름 제거", "주름이 사라짐" (기능성 범위 초과) |
+| 미백·주름개선 2중 기능성 화장품 | ❌ "식약처 인증", "식약처 허가", "식약처 보증" (보고 제품이므로 인증·허가 표현 불가) |
+| 나이아신아마이드 2%, 아데노신 0.04% 함유 | ❌ "재생", "피부 재생", "세포 재생", "치료", "염증 완화", "여드름 개선" (의약품 오인 표현) |
+| 유산균 발효 PDRN **함유** (함량 병기) | ⚠️ "PDRN 마스크", "고농축 PDRN" (미량이므로 오인 소지) |
+| 중금속·미생물 불검출 (*자사 시험성적서 기준) | ❌ "무독성", "100% 안전", "부작용 없음" |
+| 파라벤·페녹시에탄올·알코올 무첨가 | ❌ "무향료", "천연 100%", "유기농" |
+| 텐셀 시트 (상표 사용 확인 후) | ❌ "피부과 테스트 완료", "저자극 테스트 완료", "민감성 피부 테스트" (임상 시험 없음) |
+| 제조사 직접 생산, 전수 검수 | ⚠️ "임상으로 입증된 ○○% 개선" (인체적용시험 결과가 생기면 가능) |
 
-**Target customers**
-1. Women aged 25–45 who want brightening and early anti-aging in one step.
-2. K-beauty fans following the PDRN trend who prefer a **non-salmon** PDRN.
-3. Pre-event and weekly "skin reset" users.
-4. Export buyers and distributors who need documented, compliant SKUs.
+**권장 절차**
+- 상세페이지 시안이 완성되면 **대한화장품협회 광고자문**을 받아 두세요.
+- 온라인 판매 시 소명 자료(시험성적서, 기능성 보고서)를 바로 제출할 수 있게 보관하세요.
 
-**Price tier signal:** premium mass, around the Mediheal / VT PDRN mask tier. Justify the premium with:
-- the dual function
-- Tencel
-- the 59-ingredient formula
-- the documentation (COA, MSDS, MFDS)
+## 8. 활용 가능한 콘텐츠 자산
 
-## 5. Ready-to-use copy
-
-### Taglines
-- **EN:**
-  - "Brighten. Smooth. Rebalance."
-  - "Ferment-powered glow in 20 minutes."
-  - "Two functions. One sheet."
-- **KR:**
-  - "한 장에 담은 미백·주름개선 2중 기능"
-  - "발효의 힘으로 채우는 20분 광채 케어"
-
-### Short description (EN, ~40 words)
-ACE NADI Tencel Essence Mask is a dual-functional sheet mask with 2% niacinamide for brightening and adenosine for wrinkle care. It is enriched with kimchi-probiotic PDRN, rice, ginseng ferments and four types of hyaluronic acid, on a soft, skin-hugging Tencel sheet.
-
-### Long description (EN)
-Meet the mask that works on two fronts. Each ACE NADI Tencel Essence Mask holds 23 ml of essence. It is built around niacinamide (2%) and adenosine, the two ingredients behind its Korean MFDS functional-cosmetic status for brightening and wrinkle improvement.
-
-Around them is a K-bio complex:
-- FERMAGEN™ LAB-PDRN, a fermentation-derived PDRN from kimchi lactobacillus
-- five lactobacillus and saccharomyces ferments, including rice and Panax ginseng
-- the four key compounds of centella asiatica
-
-Four types of hyaluronic acid hydrate in layers, and a light five-oil complex leaves skin soft, not greasy.
-
-The premium Tencel sheet is made from wood-based lyocell fibers. It holds essence well and drapes closely to the contours of the face.
-
-Every batch is lab-tested. It is free of parabens and phenoxyethanol.
-
-### Product page bullets (marketplace style)
-- **DUAL FUNCTION, OFFICIALLY REPORTED:** niacinamide 2% brightens and adenosine helps smooth wrinkles. Reported as a functional cosmetic to Korea's MFDS.
-- **PROBIOTIC PDRN, NOT SALMON:** fermentation-derived PDRN (Sodium DNA) from kimchi lactobacillus, plus 7 ferment-derived ingredients.
-- **4-TYPE HYALURONIC ACID:** multi-weight HA with glycerin, betaine and panthenol for layered, long-lasting moisture.
-- **CALMING CICA + GINSENG:** madecassoside, asiaticoside, asiatic acid and madecassic acid, with ginsenosides and a ginseng ferment.
-- **PREMIUM TENCEL SHEET, 23 ML ESSENCE:** a soft, close-fitting sheet. Paraben-free, phenoxyethanol-free, made in Korea, and batch-tested for heavy metals and microbes.
-
-### KR 상세페이지 요약
-- 식약처 보고 미백·주름개선 2중 기능성 화장품 (나이아신아마이드 2%, 아데노신 0.04%)
-- 김치 유래 유산균 발효 PDRN (FERMAGEN™ LAB-PDRN) + 7종 발효 성분
-- 쌀추출물·쌀발효 + 인삼 발효 성분, 진세노사이드 함유
-- 4종 히알루론산으로 속부터 차오르는 수분감
-- 마데카소사이드 등 센텔라 4대 성분
-- 파라벤·페녹시에탄올 무첨가 / 중금속·미생물 불검출 (자사 시험성적서 기준)
-- 프리미엄 텐셀 시트, 1매 23ml
-
-### How-to-use (from the pack)
-1. Cleanse, then apply toner.
-2. Unfold the mask and apply it evenly.
-3. Leave it on for 10–20 minutes, then remove.
-4. Pat the remaining essence into the skin until absorbed.
-
-### Social hooks
-- "Salmon PDRN? We went probiotic. 🥬 Kimchi-lactobacillus PDRN + niacinamide 2%."
-- "20 minutes, 2 functions, 1 sheet."
-- "What 460 mg of niacinamide in one sheet looks like."
-  - *Only with a footnote: "per 23 ml essence".*
-- Hashtags: #ACENADI #에이스나디 #PDRNmask #KbeautyMask #niacinamide #텐셀마스크 #미백주름개선 #fermentedskincare
-
-## 6. Claims guidance: say this, not that
-
-| ✅ Safe (supported by documents) | ⚠️ Avoid or qualify |
+| 자산 | 용도 |
 |---|---|
-| "Helps brighten skin" / "Helps improve wrinkles" (KR wording above) | "Whitening" outside Korea: use **"brightening" / "tone-evening"** |
-| "Contains niacinamide 2%", "Contains PDRN (Sodium DNA)" | "High-concentration PDRN" / "PDRN mask" as the headline (see 7.1) |
-| "Fermentation-derived / probiotic PDRN, not salmon-derived" | "Skin regeneration" / "재생" / "cell repair" (medical-type claim in KR; the supplier TDS says "Regeneration", so do not copy it) |
-| "Heavy metals and microbes not detected (batch COA)" | "Clinically proven" / "dermatologist-tested" / "hypoallergenic" / "for sensitive skin": **no clinical data in the pack yet** |
-| "Paraben-free, phenoxyethanol-free, alcohol-free" | "EWG Green grade" for the product: only the oil-complex trade name says this; the product itself is not EWG-verified |
-| "Tencel sheet" (with licensing, see 7.3) | "Vegan" / "cruelty-free" / "natural" / "organic": no certificate in the pack |
-| "4 types of hyaluronic acid" | "Botox-like" / "filler effect" (peptides) |
+| 생산 영상 v2 (57.6초, 16:9, 음악 포함) | 상세페이지 상단, 스마트스토어 동영상, 유튜브 |
+| 텍스트 모션 13종 (투명 WebM) | 캔바로 숏폼(9:16) 재편집, 상세페이지 GIF |
+| 파우치 누끼 이미지 (앞·뒤) | 히어로, 성분 섹션 |
+| 시험성적서 / 기능성 보고서 | 품질 섹션, 소명 자료 |
+| 브랜드 컬러 | `#4A2470` (딥퍼플), `#7646A8` (퍼플), `#C4B4E2` (라벤더), `#FAF8FD` (배경) |
 
-## 7. Issues to fix before launch
+## 9. 판매 구성 · 채널 제안
 
-### 7.1 PDRN, peptide and centella levels are very low; disclose carefully
-- **Measured levels:**
-  - Sodium DNA (PDRN): **0.000002%**
-  - Madecassoside: 0.0003%
-  - Peptides: 0.0000075–0.00002%
-- **Why it matters:** the pack front features "PDRN & Madecassoside".
-  - In Korea, ingredients highlighted in advertising generally need their content stated.
-  - The MFDS/KFTC have acted against misleading "ingredient-hero" claims.
-- **Recommendation:**
-  - Lead with **niacinamide 2% + adenosine (functional)** and **ferment/PDRN as the story**.
-  - Wherever PDRN is emphasized, state "contains Sodium DNA (PDRN)" with content.
-- **Before any campaign that says "PDRN mask", get a regulatory review.**
+### 구성 (가격은 원가·채널 수수료 기준으로 내부 확정 필요)
+- 1매 (체험)
+- 10매 박스 (기본)
+- 30매 (정기구매·대용량)
+- 선물 세트
 
-### 7.2 CAS-number errors on the Manufacturing Certificate
-Rows 34–38 are shifted by one line. Correct them before sending the certificate to buyers or registrars.
+### 채널
+1. 스마트스토어 (브랜드 직영, 상세페이지 자유도 높음)
+2. 쿠팡 (로켓그로스)
+3. 카카오 선물하기 (선물 수요, 라벤더 패키지 강점)
+4. 올리브영 온라인 입점 제안 (기능성 + 제조사 직생산 스토리)
 
-| Row | Ingredient | On certificate | Correct |
-|---|---|---|---|
-| 35 | Asiaticoside | 34540-22-2 | **16830-15-2** |
-| 36 | Asiatic Acid | 16830-15-2 | **464-92-6** |
-| 37 | Madecassic Acid | 464-92-6 | **18449-41-7** |
-| 38 | Houttuynia Cordata Extract | 18449-41-7 | e.g. **164288-50-0** (per supplier MSDS) |
+### 리뷰 확보
+- 출시 초기 체험단 30~50명을 운영해 사진 리뷰를 확보하세요. 시트 밀착 사진, 에센스 양이 보이는 사진이 좋습니다.
+- 리뷰가 상세페이지 하단 섹션을 채우게 됩니다.
 
-### 7.3 TENCEL™ is a Lenzing AG trademark
-- Using "TENCEL" on packaging and ads requires the sheet supplier's fiber to be certified.
-- The brand normally also needs a **trademark licence/approval from Lenzing**.
-- Ask the sheet supplier for the Lenzing licence or certificate before export marketing.
-- Fallback wording: "lyocell sheet".
-- No sheet spec was included in this pack.
+## 10. 출시 전 체크리스트
 
-### 7.4 Fragrance allergens for EU/UK export
-- The fragrance JS-35671 contains **Hexyl Salicylate 3%**, which is about **0.0018%** in the finished product.
-- That exceeds the 0.001% leave-on threshold under the EU's expanded allergen list (Reg. (EU) 2023/1545).
-- Ask the fragrance house for a full 80+ allergen declaration before EU labels are made.
-
-### 7.5 Korean label check
-- The back label follows MFDS format.
-- Confirm that "제조번호·제조년월일 별도표기" is actually printed on the pouch crimp or box.
-
-### 7.6 Small COA note
-- Color spec says "White". A sheet-mask essence is usually described as "colorless to slightly opaque liquid".
-- Fine as is, but align it with QC's actual standard.
-
-## 8. Recommended next steps to unlock stronger claims
-1. **Human patch test (HRIPT)**. Unlocks "dermatologist-tested" and "low irritation". Cost is small, and buyers ask for it.
-2. **Efficacy test** (moisture with Corneometer, brightness, wrinkle) at a Korean CRO such as KDRI, P&K or Ellead. Gives figures like "+X% hydration after 1 use".
-3. **Vegan certification** (e.g. V-Label / Korea Agency of Vegan Certification). The formula looks animal-free; verify the HA and glycerin origin.
-4. **Export dossier.** The COA, MSDS pack and manufacturing certificate are already in place. Add:
-   - INCI list (EN)
-   - Free Sale Certificate
-   - CPNP (EU), MoCRA listing (US), NMPA (CN) as needed
-5. **Bring ginseng forward.** Use BTGin's red-ginseng heritage as the brand story; it is currently unused on pack.
-
----
-
-## Appendix A: Full formula (manufacturing certificate, % w/w)
-
-Water 86.362095 · Isopentyldiol 5.0 · Niacinamide 2.0 · 1,2-Hexanediol 1.368325 · Propanediol 1.07 · Glycerin 1.0359 · PEG-40 Hydrogenated Castor Oil 0.800196 · Butylene Glycol 0.26365 · Lactobacillus Ferment Filtrate 0.193998 · Sodium Hyaluronate 0.0106 · Hydrolyzed Hyaluronic Acid 0.0036 · Hyaluronic Acid 0.0016 · Hydrolyzed Sodium Hyaluronate 0.0002 · Betaine 0.4 · Olive Fruit Oil 0.1 · Sweet Almond Oil 0.1 · Coconut Oil 0.1 · Sunflower Seed Oil 0.1 · Castor Seed Oil 0.1 · Plantago Asiatica Extract 0.006 · Diospyros Kaki Leaf Extract 0.006 · Salix Alba Bark Extract 0.006 · Ulmus Campestris Bark Extract 0.006 · Laminaria Digitata Extract 0.006 · Beta-Glucan 0.0006 · Lactobacillus/Soybean Ferment Extract 0.004 · Lactobacillus/Rice Ferment 0.004 · Lactobacillus/Panax Ginseng Root Ferment Filtrate 0.004 · Saccharomyces/Coix Lacryma-Jobi Ma-yuen Seed Ferment Filtrate 0.004 · Saccharomyces/Potato Extract Ferment Filtrate 0.004 · Oryza Sativa (Rice) Extract 0.007 · Lactobacillus/Rice Ferment Filtrate 0.0044 · Sodium DNA 0.000002 · Madecassoside 0.0003 · Asiaticoside 0.0002 · Asiatic Acid 0.00002 · Madecassic Acid 0.00002 · Houttuynia Cordata Extract 0.001 · Rosemary Extract 0.001 · Saponaria Officinalis Leaf Extract 0.001 · Carrot Root Extract 0.001 · Safflower Flower Extract 0.001 · Panthenol 0.075 · Acetyl Hexapeptide-8 0.0000075 · Copper Tripeptide-1 0.00002 · Palmitoyl Pentapeptide-4 0.0000075 · Pentylene Glycol 0.09 · Kojic Acid 0.005 · Carbomer 0.14 · Xanthan Gum 0.06 · Ethylhexylglycerin 0.101 · Allantoin 0.1 · Arginine 0.2 · Adenosine 0.04 · Ginsenosides 0.001 · Disodium EDTA 0.05 · Caprylyl Glycol 0.000125 · PPG-26-Buteth-26 0.000134 · Fragrance 0.06 · **Total 100.0**
-
-## Appendix B: Key raw-material suppliers (from MSDS pack)
-
-| Supplier | Materials |
-|---|---|
-| triNbio | FERMAGEN™ LAB-PDRN; Rice Extract (HD); Lactobacillus/Rice Ferment Filtrate (HD) |
-| C&B Bio | AF-24 botanical complex; EWG Green 5 Oil Complex |
-| Indipharm (Indi-) | Hyal Multi-4 (N); Hyal-Joint B5; IndiMultiEx BTJC-E3; IndiGuard SA / EHG |
-| The Garden of Naturalsolution | Natural SW (5-ferment complex) |
-| Apep | ApepAHP-5, ApepCTP-10, ApepPPP-5 (peptides) |
-| Super Centella supplier | Madecassoside complex |
-| Other files in the pack | Glycerin AKCERINE™ 997VEG; Betaine GENENCARE OSMS BA; Xanthan KELTROL® F; fragrance JS-35671 |
+- [ ] 인삼/홍삼 발효여과물 표기 원료사 확인 (`product-details.md` §9-1)
+- [ ] TENCEL™ 상표 사용 근거 확보 (시트 공급사 렌징 인증서)
+- [ ] PDRN 언급 시 함량 병기, 헤드라인 사용 금지
+- [ ] 제조증명서 CAS 번호 4건 수정 (B2B·입점 서류용)
+- [ ] 상세페이지 시안 → 대한화장품협회 광고자문
+- [ ] (선택) 인체적용시험 진행: 보습·피부 밝기·주름 + 피부자극 테스트. 결과가 나오면 "피부자극 테스트 완료", "사용 후 수분 ○% 증가" 같은 강한 카피를 쓸 수 있습니다.
+- [ ] 촬영 영상에 등장한 직원 초상권 동의 확인
