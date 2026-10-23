@@ -123,6 +123,17 @@ section{scroll-margin-top:80px}
 .note{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;max-width:720px;align-items:start}
 .note .label{padding-top:4px}
 
+/* real photos */
+.gallery-head{margin-top:56px;margin-bottom:16px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery figure{margin:0;display:grid;gap:10px;min-width:0}
+.gallery img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:16px;background:var(--pink)}
+.gallery figcaption{font-size:.92rem;color:var(--mute)}
+@media (max-width:820px){
+  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .gallery figure{scroll-snap-align:start}
+}
+
 /* directions */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .step{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:10px;align-content:start}
@@ -263,6 +274,23 @@ dl.spec dd{margin:0;min-width:0}
       <div class="note">
         <p class="label" data-i18n="note.label">300 Да?</p>
         <p class="muted" data-i18n="note.text">Дальтон (Да) — единица массы молекул. Чем меньше число, тем короче цепочки пептидов. Средняя молекулярная масса рыбного коллагена в Glow Peptide — 300 Да, поэтому на упаковке он назван низкомолекулярным.</p>
+      </div>
+      <div class="gallery-head">
+        <p class="label" data-i18n="gal.eyebrow">Внутри коробки</p>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="assets/stick-in-hand.jpg" width="900" height="1200" loading="lazy" alt="Стик YOROSUM Glow Peptide 3 г на ладони" data-i18n-alt="gal.1a">
+          <figcaption data-i18n="gal.1">Стик 3 г — один на день</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/easy-cut.jpg" width="900" height="900" loading="lazy" alt="Стик, вскрытый по линии Easy Cut" data-i18n-alt="gal.2a">
+          <figcaption data-i18n="gal.2">Easy Cut: открывается руками, без ножниц</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/powder.jpg" width="900" height="1200" loading="lazy" alt="Порошок Glow Peptide, высыпанный из стика" data-i18n-alt="gal.3a">
+          <figcaption data-i18n="gal.3">Мелкий порошок со вкусом персика</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -458,6 +486,9 @@ const EN = {
   "fig.collagen":"fish collagen","fig.vitc":"vitamin C","fig.da":"average molecular weight of the collagen","fig.kcal":"per stick",
   "note.label":"300 Da?",
   "note.text":"A dalton (Da) is a unit of molecular mass. The smaller the number, the shorter the peptide chains. The fish collagen in Glow Peptide has an average molecular weight of 300 Da, which is why the box calls it low-molecular.",
+  "gal.eyebrow":"Inside the box",
+  "gal.1":"One 3 g stick per day","gal.2":"Easy Cut: tears open by hand, no scissors","gal.3":"Fine peach-flavoured powder",
+  "gal.1a":"A 3 g YOROSUM Glow Peptide stick on an open hand","gal.2a":"A stick torn open along the Easy Cut line","gal.3a":"Glow Peptide powder poured out of a stick",
   "how.eyebrow":"Daily routine","how.title":"How to take",
   "how.1t":"One stick a day","how.1p":"Once a day, one stick.",
   "how.2t":"With water","how.2p":"The powder absorbs moisture, so take it right after opening the stick.",
@@ -496,6 +527,8 @@ const RU_SOON = "скоро";
 const nodes = [...document.querySelectorAll("[data-i18n]")];
 const RU = {};
 nodes.forEach(n => { RU[n.dataset.i18n] = n.innerHTML; });
+const altNodes = [...document.querySelectorAll("[data-i18n-alt]")];
+altNodes.forEach(n => { RU[n.dataset.i18nAlt] = n.alt; });
 let lang = "ru";
 
 function renderLinks(){
@@ -527,6 +560,7 @@ function setLang(l){
   lang = l === "en" ? "en" : "ru";
   const dict = lang === "en" ? EN : RU;
   nodes.forEach(n => { const v = dict[n.dataset.i18n]; if (v != null) n.innerHTML = v; });
+  altNodes.forEach(n => { const v = dict[n.dataset.i18nAlt]; if (v != null) n.alt = v; });
   document.documentElement.lang = lang;
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
   renderLinks();
