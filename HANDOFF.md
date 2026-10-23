@@ -20,9 +20,7 @@ The page goes on **Naver Smart Store** and **cafe24**.
 | Coming from the user | Marketing details and raw images (they will upload them). |
 
 ### Environment prerequisites (the user is configuring these)
-- Network allowlist:
-  - `generativelanguage.googleapis.com` (Gemini). This was blocked in the previous session.
-  - `fonts.gstatic.com` and `fonts.googleapis.com` (Korean fonts). Without them, only WenQuanYi Zen Hei is installed for Hangul.
+- Network: the user set the allow list to **All domains**. Gemini and Google Fonts should be reachable.
 - Gemini key: environment variable **`GEMINI_API_KEY`**. Never ask for it in chat.
 - Check both first:
   ```
@@ -41,8 +39,8 @@ All in `docs/ace-nadi-tencel-essence-mask/`:
 | `competitor-medicube-pdrn-gel-mask.md` | Medicube page teardown and a revised section order for ACE NADI (§6). Use structure only; don't copy their images, wording or layout. |
 
 ### Open issues to keep honoring
-1. The pouch reads "락토바실러스/**홍삼**발효여과물", but the formula and supplier say *Panax Ginseng Root*. Say "인삼 발효" until the user confirms.
-2. TENCEL™ trademark use is not yet confirmed with the sheet supplier.
+1. ✅ Resolved: the user confirmed **홍삼**. Use "홍삼 발효" on the page.
+2. ✅ Resolved: the user said to use **"텐셀 시트"**.
 3. There are no human-trial numbers. Leave a placeholder section for future results; don't invent any.
 
 ## Brand system
