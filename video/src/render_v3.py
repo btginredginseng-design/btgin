@@ -407,8 +407,18 @@ PANEL_L = (LIST_X - 40, LIST_Y - 74, W - 96, LIST_Y + 6 * LIST_GAP + 44)
 
 
 def step_list(fr, i, k, ha):
-    fr.alpha_composite(alpha(GR, ha * .6))
-    rrect(fr, PANEL_L, SCRIM + (120,), 20, outline=(255, 255, 255, 36), width=1, a=ha)
+    """Light ivory panel with dark text; steps build up one by one."""
+    # panel grows downward as each step is added
+    tins = [st[0] + (XF + 4 if st[0] == 0 else 6) for st in STEPS]
+    vis = [t for t in tins if i >= t - 1]
+    nv = max(1, len(vis))
+    grow = eoc((i - vis[-1]) / 12) if len(vis) > 1 else 1.0
+    bottom = LIST_Y + ((nv - 2) + grow) * LIST_GAP + 44 if nv > 1 else LIST_Y + 44
+    box = (PANEL_L[0], PANEL_L[1], PANEL_L[2], int(bottom))
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle((box[0], box[1] + 10, box[2], box[3] + 10), 20, fill=(0, 0, 0, int(90 * ha)))
+    fr.alpha_composite(sh.filter(ImageFilter.GaussianBlur(18)))
+    rrect(fr, box, IVORY + (240,), 20, outline=LINE, width=1, a=ha)
     for n, st in enumerate(STEPS):
         t_in = st[0] + (XF + 4 if st[0] == 0 else 6)
         if i < t_in - 1:
@@ -418,19 +428,20 @@ def step_list(fr, i, k, ha):
         if n > 0:
             lp = eoc((i - t_in) / 12)
             y0 = y - LIST_GAP + 10
-            rrect(fr, (LIST_X - 1, y0, LIST_X, y0 + int((LIST_GAP - 20) * lp)), GOLD_V + (150,), 0, a=ha)
+            rrect(fr, (LIST_X - 1, y0, LIST_X, y0 + int((LIST_GAP - 20) * lp)), GOLD, 0, a=ha)
         cur = n == k
         p = eback((i - t_in) / 14)
         r = (7 if cur else 5) * max(0, p)
         if r > .5:
-            rrect(fr, (LIST_X - r, y - r, LIST_X + r, y + r), GOLD_V, r, a=ha if n <= k else 0)
+            rrect(fr, (LIST_X - r, y - r, LIST_X + r, y + r), RED if cur else GOLD_D, r, a=ha)
             if cur:
                 rr = 13 * max(0, p)
                 rrect(fr, (LIST_X - rr, y - rr, LIST_X + rr, y + rr), (0, 0, 0, 0), rr,
-                      outline=GOLD_V + (160,), width=1, a=ha)
-        dim = 1.0 if cur else .62
-        put(fr, text(f"STEP {n + 1:02d}", "sans600", 16, .24, GOLD_V), LIST_X + 32, y - 34, i, t_in, a_mul=ha * dim)
-        put(fr, text(st[2], "serif500", 28, -.03, WHITE), LIST_X + 30, y - 12, i, t_in + 2, a_mul=ha * dim)
+                      outline=RED + (110,), width=1, a=ha)
+        put(fr, text(f"STEP {n + 1:02d}", "sans600", 16, .24, GOLD_D), LIST_X + 32, y - 34, i, t_in,
+            a_mul=ha * (1.0 if cur else .8))
+        put(fr, text(st[2], "serif600" if cur else "serif500", 28, -.03, INK if cur else BODY),
+            LIST_X + 30, y - 12, i, t_in + 2, a_mul=ha)
 
 
 def pin_icon(size=26, color=GOLD_V):
@@ -450,49 +461,21 @@ HUD_TOP = 64
 
 
 def hud(fr, i):
-    """Logo, location, step block, counter, progress bar. i = footage index."""
+    """Logo (top-left), step list (right), counter (bottom-right). i = footage index."""
     ha = eoc((i - XF) / IN) * (1 - eio((i - (NF - XF - 6)) / 12))
     if ha <= .003:
         return
     fr.alpha_composite(alpha(GT, ha))
-    fr.alpha_composite(alpha(GB, ha))
-    step_list(fr, i, max(n for n, s in enumerate(STEPS) if s[0] <= i), ha)
-    # top-left: white logo + label
-    fr.alpha_composite(alpha(LOGO_WHITE, ha), (120, HUD_TOP))
-    lab = text("자체 생산 라인  ·  IN-HOUSE PRODUCTION", "sans500", 20, .16, WHITE)
-    mid = HUD_TOP + LOGO_WHITE.height * .36
-    fr.alpha_composite(alpha(lab, ha * .95), (int(120 + LOGO_WHITE.width + 28 - lab._pad), int(mid - 12 - lab._pad)))
-    # top-right: pin + location
-    loc = text("BTGIN FACTORY  ·  DAEJEON, KOREA", "sans500", 20, .16, WHITE)
-    lx = W - 120 - loc._w
-    fr.alpha_composite(alpha(loc, ha * .95), (int(lx - loc._pad), int(mid - 12 - loc._pad)))
-    fr.alpha_composite(alpha(PIN, ha), (int(lx - 16 - PIN.width), int(mid - PIN.height / 2 - 2)))
-    # step block (bottom-left)
+    fr.alpha_composite(alpha(GB, ha * .5))
     k = max(n for n, s in enumerate(STEPS) if s[0] <= i)
-    s0, s1, ko, en, desc = STEPS[k]
-    t_in = s0 + (XF + 4 if s0 == 0 else 6)
-    out = (s1 - 12, 12) if k < len(STEPS) - 1 else (NF - XF - 6, 12)
-    # step names are shown only in the fixed list on the right (centred title removed as repetitive)
+    step_list(fr, i, k, ha)
+    fr.alpha_composite(alpha(LOGO_WHITE, ha), (120, HUD_TOP))
     # counter (bottom-right)
     cur = text(f"{k + 1:02d}", "latin600", 34, .04, GOLD_V)
     rest = text(f" / {len(STEPS):02d}", "latin600", 34, .04, WHITE)
     rx = W - 120 - rest._w
-    fr.alpha_composite(alpha(rest, ha * .7), (int(rx - rest._pad), int(906 - rest._pad)))
-    fr.alpha_composite(alpha(cur, ha), (int(rx - cur._w - 4 - cur._pad), int(906 - cur._pad)))
-    # progress bar: 2 px, gold fill, one dot per step
-    y = H - 84
-    x0, x1 = 120, W - 120
-    prog = clamp(i / (NF - 1))
-    rrect(fr, (x0, y - 1, x1, y), (255, 255, 255, 70), 0, a=ha)
-    rrect(fr, (x0, y - 1, x0 + int((x1 - x0) * prog), y), GOLD_V, 0, a=ha)
-    for n in range(len(STEPS)):
-        dx = x0 + (x1 - x0) * n / (len(STEPS) - 1)
-        reached = STEPS[n][0] <= i
-        r = 6 if n == k else 4
-        col = GOLD_V + (255,) if reached else (255, 255, 255, 140)
-        rrect(fr, (dx - r, y - r, dx + r, y + r), col, r, a=ha)
-        if n == k:
-            rrect(fr, (dx - 11, y - 11, dx + 11, y + 11), (0, 0, 0, 0), 11, outline=GOLD_V + (150,), width=1, a=ha)
+    fr.alpha_composite(alpha(rest, ha * .8), (int(rx - rest._pad), int(960 - rest._pad)))
+    fr.alpha_composite(alpha(cur, ha), (int(rx - cur._w - 4 - cur._pad), int(960 - cur._pad)))
 
 
 def callout(fr, i):
