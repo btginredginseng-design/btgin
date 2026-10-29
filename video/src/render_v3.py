@@ -472,9 +472,7 @@ def hud(fr, i):
     s0, s1, ko, en, desc = STEPS[k]
     t_in = s0 + (XF + 4 if s0 == 0 else 6)
     out = (s1 - 12, 12) if k < len(STEPS) - 1 else (NF - XF - 6, 12)
-    # centred: STEP tag + Korean step name only
-    put(fr, text(f"STEP {k + 1:02d}", "sans600", 22, .24, GOLD_V), W / 2 + 22 * .12, 818, i, t_in, "c", out=out)
-    put(fr, text(ko, "serif500", 80, -.04, WHITE), W / 2, 850, i, t_in + 3, "c", clip=True, out=out)
+    # step names are shown only in the fixed list on the right (centred title removed as repetitive)
     # counter (bottom-right)
     cur = text(f"{k + 1:02d}", "latin600", 34, .04, GOLD_V)
     rest = text(f" / {len(STEPS):02d}", "latin600", 34, .04, WHITE)
