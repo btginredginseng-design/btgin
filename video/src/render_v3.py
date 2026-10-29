@@ -94,7 +94,7 @@ STEPS = [  # footage start, end, Korean name, English name, description
      "100% 자체 생산 · 100% in-house production"),
 ]
 # callout: footage window, target centre, circle radius, card position, number, caption lines
-CALLOUT = dict(t0=526, t1=578, cx=1050, cy=832, r=124, card=(1300, 440), num="30포",
+CALLOUT = dict(t0=526, t1=578, cx=1050, cy=750, r=58, card=(1300, 450), num="30포",
                cap=("한 박스 구성", "30 pouches per box"))
 
 SHOT_CUTS = [s[0] for s in R.SHOTS[1:]]
@@ -432,10 +432,9 @@ def hud(fr, i):
     s0, s1, ko, en, desc = STEPS[k]
     t_in = s0 + (XF + 4 if s0 == 0 else 6)
     out = (s1 - 12, 12) if k < len(STEPS) - 1 else (NF - XF - 6, 12)
-    put(fr, text(f"STEP {k + 1:02d}", "sans600", 22, .24, GOLD_V), 120, 706, i, t_in, out=out)
-    put(fr, text(ko, "serif500", 80, -.04, WHITE), 116, 744, i, t_in + 3, clip=True, out=out)
-    put(fr, text(en, "sans400", 32, -.02, WHITE), 120, 858, i, t_in + 7, a_mul=.9, out=out)
-    put(fr, text(desc, "sans400", 24, -.02, WHITE), 120, 912, i, t_in + 10, a_mul=.72, out=out)
+    # centred: STEP tag + Korean step name only
+    put(fr, text(f"STEP {k + 1:02d}", "sans600", 22, .24, GOLD_V), W / 2 + 22 * .12, 818, i, t_in, "c", out=out)
+    put(fr, text(ko, "serif500", 80, -.04, WHITE), W / 2, 850, i, t_in + 3, "c", clip=True, out=out)
     # counter (bottom-right)
     cur = text(f"{k + 1:02d}", "latin600", 34, .04, GOLD_V)
     rest = text(f" / {len(STEPS):02d}", "latin600", 34, .04, WHITE)
