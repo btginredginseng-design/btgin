@@ -94,7 +94,7 @@ STEPS = [  # footage start, end, Korean name, English name, description
      "100% 자체 생산 · 100% in-house production"),
 ]
 # callout: footage window, target centre, circle radius, card position, number, caption lines
-CALLOUT = dict(t0=526, t1=578, cx=1050, cy=750, r=58, card=(1300, 450), num="30포",
+CALLOUT = dict(t0=526, t1=578, cx=1050, cy=750, r=58, card=(980, 470), num="30포",
                cap=("한 박스 구성", "30 pouches per box"))
 
 SHOT_CUTS = [s[0] for s in R.SHOTS[1:]]
@@ -391,7 +391,46 @@ def grad_top():
     return Image.fromarray(arr)
 
 
-GB, GT = grad_bottom(), grad_top()
+def grad_right():
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    a = np.clip((xx - (W - 820)) / 820, 0, 1) ** 1.3 * .6
+    arr = np.zeros((H, W, 4), np.uint8); arr[..., :3] = SCRIM
+    arr[..., 3] = np.broadcast_to((a * 255).astype(np.uint8), (H, W))
+    return Image.fromarray(arr)
+
+
+GB, GT, GR = grad_bottom(), grad_top(), grad_right()
+
+# fixed step list on the right: steps appear one by one and stay
+LIST_X, LIST_Y, LIST_GAP = 1372, 262, 82
+PANEL_L = (LIST_X - 40, LIST_Y - 74, W - 96, LIST_Y + 6 * LIST_GAP + 44)
+
+
+def step_list(fr, i, k, ha):
+    fr.alpha_composite(alpha(GR, ha * .6))
+    rrect(fr, PANEL_L, SCRIM + (120,), 20, outline=(255, 255, 255, 36), width=1, a=ha)
+    for n, st in enumerate(STEPS):
+        t_in = st[0] + (XF + 4 if st[0] == 0 else 6)
+        if i < t_in - 1:
+            break
+        y = LIST_Y + n * LIST_GAP
+        # connector from the previous dot draws downward as this step appears
+        if n > 0:
+            lp = eoc((i - t_in) / 12)
+            y0 = y - LIST_GAP + 10
+            rrect(fr, (LIST_X - 1, y0, LIST_X, y0 + int((LIST_GAP - 20) * lp)), GOLD_V + (150,), 0, a=ha)
+        cur = n == k
+        p = eback((i - t_in) / 14)
+        r = (7 if cur else 5) * max(0, p)
+        if r > .5:
+            rrect(fr, (LIST_X - r, y - r, LIST_X + r, y + r), GOLD_V, r, a=ha if n <= k else 0)
+            if cur:
+                rr = 13 * max(0, p)
+                rrect(fr, (LIST_X - rr, y - rr, LIST_X + rr, y + rr), (0, 0, 0, 0), rr,
+                      outline=GOLD_V + (160,), width=1, a=ha)
+        dim = 1.0 if cur else .62
+        put(fr, text(f"STEP {n + 1:02d}", "sans600", 16, .24, GOLD_V), LIST_X + 32, y - 34, i, t_in, a_mul=ha * dim)
+        put(fr, text(st[2], "serif500", 28, -.03, WHITE), LIST_X + 30, y - 12, i, t_in + 2, a_mul=ha * dim)
 
 
 def pin_icon(size=26, color=GOLD_V):
@@ -417,6 +456,7 @@ def hud(fr, i):
         return
     fr.alpha_composite(alpha(GT, ha))
     fr.alpha_composite(alpha(GB, ha))
+    step_list(fr, i, max(n for n, s in enumerate(STEPS) if s[0] <= i), ha)
     # top-left: white logo + label
     fr.alpha_composite(alpha(LOGO_WHITE, ha), (120, HUD_TOP))
     lab = text("자체 생산 라인  ·  IN-HOUSE PRODUCTION", "sans500", 20, .16, WHITE)
@@ -472,8 +512,8 @@ def callout(fr, i):
         d.arc((cx - r, cy - r, cx + r, cy + r), -90, -90 + sweep, fill=GOLD_V + (int(255 * out),), width=4)
     # line from circle edge to card
     kx, ky = c["card"]
-    ex, ey = cx + r * math.cos(math.radians(-45)), cy + r * math.sin(math.radians(-45))
-    tx, ty = kx, ky + 75
+    ex, ey = cx, cy - r
+    tx, ty = cx, ky + 150
     lp = eoc((f - 10) / 10)
     if lp > 0:
         d.line((ex, ey, ex + (tx - ex) * lp, ey + (ty - ey) * lp), fill=GOLD_V + (int(255 * out),), width=2)
