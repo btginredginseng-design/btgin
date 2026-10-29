@@ -20,7 +20,32 @@ R.GRADE = ("huesaturation=saturation=-0.3:strength=2:colors=g+c,eq=saturation=0.
            "colorbalance=rm=0.03:bm=-0.03:rh=0.025:bh=-0.03,curves=all='0/0.01 0.5/0.49 1/0.98'")
 
 W, H, FPS = 1920, 1080, 30
-NF = R.NF
+
+# finalized raw edit from the client: one 1920x1080 file, every shot already full-frame 16:9,
+# same 949 frames and cut points as the earlier two-part footage
+RAW = "/root/.claude/uploads/25c59277-18aa-55ab-9218-a328aca5ae4b/579dcba1-07151.mp4"
+NF = 949
+
+
+def _reader():
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-i", RAW, "-vf", f"{R.GRADE},format=rgb24",
+                          "-f", "rawvideo", "-"], stdout=subprocess.PIPE, bufsize=W * H * 6)
+    n = W * H * 3
+    while True:
+        b = p.stdout.read(n)
+        if len(b) < n:
+            break
+        yield Image.frombuffer("RGB", (W, H), b, "raw", "RGB", 0, 1)
+
+
+def _seek(i):
+    b = subprocess.run(["ffmpeg", "-v", "error", "-i", RAW, "-vf", f"select=eq(n\\,{i}),{R.GRADE},format=rgb24",
+                        "-frames:v", "1", "-f", "rawvideo", "-"], capture_output=True).stdout
+    return Image.frombuffer("RGB", (W, H), b, "raw", "RGB", 0, 1)
+
+
+R.footage_reader, R.footage_seek = _reader, _seek
+R.compose_footage = lambda src, i: src.copy()   # no reframing needed any more
 
 # ---------- timeline (frames)
 LOGO, HERO = 60, 135

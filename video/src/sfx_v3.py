@@ -2,8 +2,7 @@
 import subprocess, sys, wave
 import numpy as np
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
-from render_ko import SRC
-from render_v3 import NF, FPS, F0, FEND, XF, C1, C2, FIN, LOGO, TOTAL, STEPS, CALLOUT
+from render_v3 import RAW, NF, FPS, F0, FEND, XF, C1, C2, FIN, LOGO, TOTAL, STEPS, CALLOUT
 
 SR = 48000
 N = int(TOTAL / FPS * SR) + SR
@@ -89,8 +88,7 @@ def T(gframe):
 
 
 # --- original footage audio, untouched apart from level and the dissolve fades
-raw = subprocess.run(["ffmpeg", "-v", "error", "-i", SRC[0], "-i", SRC[1], "-filter_complex",
-                      "[0:a][1:a]concat=n=2:v=0:a=1,aresample=48000", "-f", "f32le", "-ac", "2", "-"],
+raw = subprocess.run(["ffmpeg", "-v", "error", "-i", RAW, "-af", "aresample=48000", "-f", "f32le", "-ac", "2", "-"],
                      capture_output=True).stdout
 fa = np.frombuffer(raw, np.float32).reshape(-1, 2).copy()[: int(NF / FPS * SR)]
 fa *= 10 ** (-20 / 20) / np.sqrt((fa ** 2).mean())
